@@ -1,0 +1,142 @@
+<!doctype html>
+<html class="no-js" lang="it">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Argjend Barber Shop — Tagli, Barba e Grooming a Trieste</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="Argjend Barber Shop a Trieste — Tagli uomo, rasature tradizionali e grooming. Aperto Lunedì–Sabato 10:00–20:00. Chiama: +39 380 283 5412.">
+
+  <meta property="og:title" content="Argjend Barber Shop — Trieste">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://argjend-barber-shop.example/">
+  <meta property="og:image" content="/icon.png">
+  <meta property="og:image:alt" content="Logo Argjend Barber Shop">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#111111">
+</head>
+
+<body>
+
+  <header class="site-header reveal reveal-visible">
+    <canvas id="starfield" class="starfield header-starfield" aria-hidden="true"></canvas>
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand" aria-label="Argjend Barber Shop Home">
+        <img src="/icon.svg" alt="Logo" class="brand-logo" />
+        <span>Argjend Barber Shop</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Apri menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav id="primary-nav" class="site-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="servizi.html">Servizi</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="social.html">Social</a></li>
+          <li><a href="contatti.html" class="btn btn-primary">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero hero-stars reveal reveal-visible hero--center">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>Tagli precisi. Stile senza tempo.</h1>
+          <p>Argjend Barber Shop a Trieste: rasature tradizionali, cura della barba e tagli moderni su misura per te.</p>
+          <div class="cta-group">
+            <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" class="btn btn-outline">Come arrivare</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt reveal">
+      <div class="container">
+        <h2 class="section-title center">Entra nel sito</h2>
+        <p class="center" style="color: var(--muted); margin-bottom: 16px">Scopri chi siamo e i nostri servizi.</p>
+        <div class="menu-grid">
+          <a class="menu-tile reveal reveal-delay-1" href="chi-siamo.html">
+            <span class="mt-title">Chi siamo</span>
+            <span class="mt-sub">La nostra storia</span>
+          </a>
+          <a class="menu-tile reveal reveal-delay-2" href="servizi.html">
+            <span class="mt-title">Servizi</span>
+            <span class="mt-sub">Tagli e rasature</span>
+          </a>
+          <a class="menu-tile reveal reveal-delay-3" href="prezzi.html">
+            <span class="mt-title">Prezzi</span>
+            <span class="mt-sub">Listino rapido</span>
+          </a>
+          <a class="menu-tile reveal reveal-delay-4" href="social.html">
+            <span class="mt-title">Social</span>
+            <span class="mt-sub">Foto reali</span>
+          </a>
+          <a class="menu-tile reveal reveal-delay-1" href="contatti.html">
+            <span class="mt-title">Contatti</span>
+            <span class="mt-sub">Prenota/Info</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer reveal">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Argjend Barber Shop — Tutti i diritti riservati.</p>
+    </div>
+  </footer>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Barbershop",
+    "name": "Argjend Barber Shop",
+    "telephone": "+39 380 283 5412",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Viale Gabriele D’Annunzio 7",
+      "addressLocality": "Trieste",
+      "addressRegion": "TS",
+      "postalCode": "34138",
+      "addressCountry": "IT"
+    },
+    "openingHours": [
+      "Mo 10:00-20:00",
+      "Tu 10:00-20:00",
+      "We 10:00-20:00",
+      "Th 10:00-20:00",
+      "Fr 10:00-20:00",
+      "Sa 10:00-20:00"
+    ],
+    "image": [
+      "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?q=80&w=1200&auto=format&fit=crop"
+    ],
+    "sameAs": [
+      "https://www.instagram.com/barber_shop_argjend1",
+      "https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS"
+    ]
+  }
+  </script>
+
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>

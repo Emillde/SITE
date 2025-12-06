@@ -1,0 +1,140 @@
+<!doctype html>
+<html class="no-js" lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contatti — Argjend Barber Shop Trieste</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="Contatti — Telefono, indirizzo e orari di Argjend Barber Shop a Trieste. Chiama: +39 380 283 5412.">
+
+  <meta property="og:title" content="Contatti — Argjend Barber Shop">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://argjend-barber-shop.example/contatti.html">
+  <meta property="og:image" content="/icon.png">
+  <meta property="og:image:alt" content="Logo Argjend Barber Shop">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#111111">
+</head>
+<body>
+  <header class="site-header reveal reveal-visible">
+    <canvas id="starfield" class="starfield header-starfield" aria-hidden="true"></canvas>
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand" aria-label="Argjend Barber Shop Home">
+        <img src="/icon.svg" alt="Logo" class="brand-logo" />
+        <span>Argjend Barber Shop</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Apri menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav id="primary-nav" class="site-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="servizi.html">Servizi</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="social.html">Social</a></li>
+          <li><a href="contatti.html" class="btn btn-primary">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero reveal reveal-visible">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1>Contattaci</h1>
+          <p>Per appuntamenti e informazioni chiamaci o scrivici. Siamo aperti Lun–Sab 10:00–20:00.</p>
+          <div class="cta-group">
+            <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" class="btn btn-outline">Come arrivare</a>
+          </div>
+        </div>
+        <!-- hero media removed as requested -->
+      </div>
+    </section>
+
+    <section class="section contact reveal">
+      <div class="container contact-grid">
+        <div class="reveal reveal-delay-1">
+          <h2 class="section-title">Dove siamo</h2>
+          <ul class="contact-list">
+            <li><strong>Telefono:</strong> <a href="tel:+393802835412">+39 380 283 5412</a></li>
+            <li><strong>Indirizzo:</strong> Viale Gabriele D’Annunzio 7 (o 7/B), 34138 Trieste TS, Italia</li>
+            <li><strong>Orari:</strong> Lun–Sab 10:00–20:00 • Dom chiuso</li>
+          </ul>
+          <div class="cta-group">
+            <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener">Apri in Google Maps</a>
+            <a class="btn btn-primary" href="tel:+393802835412">Chiama ora</a>
+          </div>
+        </div>
+        <form id="contactForm" class="contact-form reveal reveal-delay-2">
+          <div class="form-row">
+            <label>
+              Nome
+              <input type="text" name="name" required placeholder="Il tuo nome" />
+            </label>
+          </div>
+          <div class="form-row">
+            <label>
+              Email
+              <input type="email" name="email" required placeholder="nome@email.it" />
+            </label>
+          </div>
+          <div class="form-row">
+            <label>
+              Messaggio
+              <textarea name="message" rows="5" required placeholder="Come possiamo aiutarti?"></textarea>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary full">Invia</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer reveal">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Argjend Barber Shop — Tutti i diritti riservati.</p>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Barbershop",
+    "name": "Argjend Barber Shop",
+    "telephone": "+39 380 283 5412",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Viale Gabriele D’Annunzio 7",
+      "addressLocality": "Trieste",
+      "addressRegion": "TS",
+      "postalCode": "34138",
+      "addressCountry": "IT"
+    },
+    "openingHours": [
+      "Mo 10:00-20:00",
+      "Tu 10:00-20:00",
+      "We 10:00-20:00",
+      "Th 10:00-20:00",
+      "Fr 10:00-20:00",
+      "Sa 10:00-20:00"
+    ],
+    "sameAs": [
+      "https://www.instagram.com/barber_shop_argjend1",
+      "https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS"
+    ]
+  }
+  </script>
+  <script src="js/app.js"></script>
+</body>
+</html>
