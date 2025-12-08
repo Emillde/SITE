@@ -31,24 +31,23 @@
     <canvas id="starfield" class="starfield header-starfield" aria-hidden="true"></canvas>
     <div class="container nav-wrapper">
       <a href="index.html" class="brand" aria-label="Argjend Barber Shop Home">
-        <img src="/icon.svg" alt="Logo" class="brand-logo" />
+        <img src="/img/logo 1.png" alt="Logo" class="brand-logo" />
         <span>Argjend Barber Shop</span>
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Apri menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <nav id="primary-nav" class="site-nav">
+      <nav class="site-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="chi-siamo.html">Chi siamo</a></li>
           <li><a href="servizi.html">Servizi</a></li>
-          <li><a href="prezzi.html">Prezzi</a></li>
           <li><a href="social.html">Social</a></li>
           <li><a href="contatti.html" class="btn btn-primary">Contatti</a></li>
         </ul>
       </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
   </header>
 
@@ -66,39 +65,66 @@
       </div>
     </section>
 
-    <section class="section section-alt reveal">
-      <div class="container">
-        <h2 class="section-title center">Entra nel sito</h2>
-        <p class="center" style="color: var(--muted); margin-bottom: 16px">Scopri chi siamo e i nostri servizi.</p>
+
+
+    <!-- Navigation Menu section -->
+    <section class="section reveal hero--center" id="navigation-menu">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h2>Esplora il nostro sito</h2>
+          <p>Scopri tutto quello che offriamo: dalla nostra storia ai servizi, prezzi e come contattarci.</p>
+        </div>
         <div class="menu-grid">
-          <a class="menu-tile reveal reveal-delay-1" href="chi-siamo.html">
-            <span class="mt-title">Chi siamo</span>
-            <span class="mt-sub">La nostra storia</span>
+          <a href="chi-siamo.html" class="menu-tile interactive">
+            <div class="mt-title">Chi siamo</div>
+            <div class="mt-sub">Scopri la nostra storia e passione per il grooming maschile.</div>
           </a>
-          <a class="menu-tile reveal reveal-delay-2" href="servizi.html">
-            <span class="mt-title">Servizi</span>
-            <span class="mt-sub">Tagli e rasature</span>
+          <a href="servizi.html" class="menu-tile interactive">
+            <div class="mt-title">Servizi</div>
+            <div class="mt-sub">Esplora i nostri servizi di taglio, barba e grooming.</div>
           </a>
-          <a class="menu-tile reveal reveal-delay-3" href="prezzi.html">
-            <span class="mt-title">Prezzi</span>
-            <span class="mt-sub">Listino rapido</span>
-          </a>
-          <a class="menu-tile reveal reveal-delay-4" href="social.html">
-            <span class="mt-title">Social</span>
-            <span class="mt-sub">Foto reali</span>
-          </a>
-          <a class="menu-tile reveal reveal-delay-1" href="contatti.html">
-            <span class="mt-title">Contatti</span>
-            <span class="mt-sub">Prenota/Info</span>
+          <a href="contatti.html" class="menu-tile interactive">
+            <div class="mt-title">Contatti</div>
+            <div class="mt-sub">Contattaci per prenotazioni e informazioni.</div>
           </a>
         </div>
       </div>
     </section>
+
+
+
+
+
+    <!-- Social section -->
+    <section class="section section-alt reveal hero--center" id="social">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h2>Social</h2>
+          <p>Seguici sui social per aggiornamenti, ispirazioni e promozioni esclusive.</p>
+          <div class="social-buttons">
+            <a href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" class="btn-social btn-ig">Instagram</a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="btn-social btn-fb">Facebook</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" class="btn-social btn-maps">Maps</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
   </main>
 
   <footer class="site-footer reveal">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Argjend Barber Shop — Tutti i diritti riservati.</p>
+      <p class="copyright">© <span id="year"></span> Argjend Barber Shop — Tutti i diritti riservati.</p>
+      <p><a href="contact.html" class="footer-link">Made by Emil de Cristini</a></p>
+      <div class="social">
+        <a href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">Instagram</a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">Facebook</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" aria-label="Maps" title="Maps">Maps</a>
+      </div>
     </div>
   </footer>
 
@@ -137,6 +163,15 @@
 
   <script src="js/app.js"></script>
 
+  <div id="cookie-consent-popup" class="cookie-popup">
+    <div class="cookie-popup-content">
+      <p>Questo sito utilizza i cookie per migliorare la tua esperienza. <a href="/privacy.html">Leggi la nostra policy.</a></p>
+      <div class="cookie-popup-buttons">
+        <button id="cookie-accept-btn" class="btn btn-primary">Accetta</button>
+        <button id="cookie-decline-btn" class="btn btn-outline">Rifiuta</button>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

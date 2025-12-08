@@ -26,7 +26,7 @@
     <canvas id="starfield" class="starfield header-starfield" aria-hidden="true"></canvas>
     <div class="container nav-wrapper">
       <a href="index.html" class="brand" aria-label="Argjend Barber Shop Home">
-        <img src="/icon.svg" alt="Logo" class="brand-logo" />
+        <img src="/img/logo 1.png" alt="Logo" class="brand-logo" />
         <span>Argjend Barber Shop</span>
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Apri menu">
@@ -59,48 +59,18 @@
           </div>
         </div>
         <div class="hero-media" aria-hidden="true">
-          <img src="https://images.unsplash.com/photo-1621601007425-429d21469e71?q=80&w=1400&auto=format&fit=crop" alt="Barbiere che taglia i capelli a un cliente" />
+          <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=1400&auto=format&fit=crop" alt="Interno moderno di barber shop" />
         </div>
       </div>
     </section>
 
-    <section class="section reveal">
-      <div class="container grid-2">
-        <div>
-          <h2 class="section-title">La nostra filosofia</h2>
-          <p>Ogni cliente è unico. Offriamo consulenza personalizzata, tecniche tradizionali e tendenze moderne per valorizzare il tuo stile.</p>
-          <ul class="check-list">
-            <li>Consulenza personalizzata</li>
-            <li>Prodotti professionali selezionati</li>
-            <li>Igiene e sicurezza al primo posto</li>
-          </ul>
-        </div>
-        <div class="about-media">
-          <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200&auto=format&fit=crop" alt="Dettagli e strumenti da barbiere" />
-        </div>
-      </div>
-    </section>
+
 
     <section class="section section-alt reveal">
       <div class="container">
         <h2 class="section-title center">Recensioni</h2>
-        <div class="card-grid">
-          <article class="card reveal reveal-delay-1 floaty">
-            <h3>★★★★★</h3>
-            <p>Taglio perfetto e attenzione ai dettagli. Consigliatissimo!</p>
-          </article>
-          <article class="card reveal reveal-delay-2 floaty">
-            <h3>★★★★★</h3>
-            <p>Barba rifinita alla grande. Ambiente pulito e cordiale.</p>
-          </article>
-          <article class="card reveal reveal-delay-3 floaty">
-            <h3>★★★★★</h3>
-            <p>Professionali e veloci. Tornerò sicuramente.</p>
-          </article>
-          <article class="card reveal reveal-delay-4 floaty">
-            <h3>★★★★★</h3>
-            <p>Ottimo rapporto qualità/prezzo. Consiglio di prenotare!</p>
-          </article>
+        <div id="reviews-container" class="card-grid">
+          <!-- Reviews will be inserted here by JavaScript -->
         </div>
       </div>
     </section>
@@ -108,7 +78,12 @@
 
   <footer class="site-footer reveal">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Argjend Barber Shop — Tutti i diritti riservati.</p>
+      <p class="copyright">© <span id="year"></span> Argjend Barber Shop — Tutti i diritti riservati.</p>
+      <div class="social">
+        <a href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">Instagram</a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">Facebook</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" aria-label="Maps" title="Maps">Maps</a>
+      </div>
     </div>
   </footer>
 
@@ -141,5 +116,15 @@
   }
   </script>
   <script src="js/app.js"></script>
+
+  <div id="cookie-consent-popup" class="cookie-popup">
+    <div class="cookie-popup-content">
+      <p>Questo sito utilizza i cookie per migliorare la tua esperienza. <a href="/privacy.html">Leggi la nostra policy.</a></p>
+      <div class="cookie-popup-buttons">
+        <button id="cookie-accept-btn" class="btn btn-primary">Accetta</button>
+        <button id="cookie-decline-btn" class="btn btn-outline">Rifiuta</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
