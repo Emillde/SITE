@@ -1,3 +1,16 @@
+// Lenis smooth scrolling
+const script = document.createElement('script');
+script.src = 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js';
+document.head.appendChild(script);
+script.onload = () => {
+  const lenis = new Lenis();
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+};
+
 // Mobile navigation toggle
 (function() {
   const toggle = document.querySelector('.nav-toggle');
