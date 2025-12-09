@@ -1,0 +1,52 @@
+CORREZIONI MENU - 12 DICEMBRE 2025 (AGGIORNAMENTO)
+================================================
+
+✅ BANDA NERA TRASPARENTE - RIMOSSA:
+-----------------------------------
+Precedente: background: rgba(15,15,16,0.95)  ← Banda nera fastidiosa
+Nuovo: background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 100%)
+Effetto: Menu mobile bianco/trasparente invece di nero - MOLTO più elegante
+
+✅ MENU SUPERIORE - COMPLETAMENTE RINNOVATO:
+--------------------------------------------
+Prima il testo era INVISIBILE (bianco su sfondo bianco)
+
+Cambamenti:
+1. Logo/Brand:
+   - Colore: da #fff (bianco invisibile) a #000000 (nero visibile)
+   - Al hover: diventa #DAA520 (oro chiaro e luminoso)
+
+2. Link Menu:
+   - Colore: da rgba(255,255,255,0.8) a #000000 (nero visibile)
+   - Peso: aggiunto font-weight: 600 per più impatto
+   - Al hover: 
+     • Sfondo: rgba(255,215,0,0.15) - leggero sfondo oro
+     • Testo: #FFD700 - oro luminoso
+     • Effetto glow: text-shadow 0 0 8px
+     • Border-radius: 8px - angoli arrotondati
+
+✅ MENU MOBILE - RINNOVATO:
+--------------------------
+1. Sfondo: da nero trasparente a bianco trasparente
+2. Testo: da bianco a nero per contrasto massimo
+3. Hover: Sfondo leggero oro (#FFD700) con glow effect
+4. Animazione: scale(1.05) mantenuta per feedback visivo
+
+RISULTATI FINALI:
+-----------------
+✨ Menu superiore: VISIBILE con contrasto nero su bianco
+✨ Testo nero: Molto più leggibile che prima
+✨ Hover effect: Oro luminoso con glow per indicare interattività
+✨ Menu mobile: Bianco elegante, NO più banda nera fastidiosa
+✨ Coerenza: Tutti i colori seguono il tema oro/bianco/nero
+
+FILE MODIFICATO:
+----------------
+📄 css/style.css
+   - Linee 236-242: Brand e nav colors (nero + hover oro)
+   - Linee 440-446: Mobile menu (sfondo bianco + text nero)
+
+VISUAL IMPROVEMENTS:
+-------------------
+🎯 PRIMA: Menu invisibile su header bianca, banda nera orribile su mobile
+🎯 DOPO:  Menu perfettamente leggibile, mobile elegante e pulito

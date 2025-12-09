@@ -1,15 +1,17 @@
-// Lenis smooth scrolling
-const script = document.createElement('script');
-script.src = 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js';
-document.head.appendChild(script);
-script.onload = () => {
-  const lenis = new Lenis();
-  function raf(time) {
-    lenis.raf(time);
+// Lenis smooth scrolling - disabled on mobile to avoid conflicts with touch scrolling
+if (window.innerWidth >= 700) {
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js';
+  document.head.appendChild(script);
+  script.onload = () => {
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
     requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
-};
+  };
+}
 
 // Mobile navigation toggle
 (function() {
@@ -147,15 +149,21 @@ script.onload = () => {
     let raf;
     function loop() {
       ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = 'rgba(255,255,255,1.0)';
       stars.forEach(s => {
         s.x += s.vx; s.y += s.vy;
         if (s.x < -2) s.x = w + 2; if (s.x > w + 2) s.x = -2;
         if (s.y < -2) s.y = h + 2; if (s.y > h + 2) s.y = -2;
         const r = s.z * 0.8;
         ctx.globalAlpha = 0.3 + s.z * 0.3;
+        // Black star
+        ctx.fillStyle = 'rgba(0,0,0,0.9)';
         ctx.beginPath();
         ctx.arc(s.x, s.y, r, 0, Math.PI * 2);
+        ctx.fill();
+        // Gold glow effect
+        ctx.fillStyle = 'rgba(255,215,0,0.25)';
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, r * 1.5, 0, Math.PI * 2);
         ctx.fill();
       });
       ctx.globalAlpha = 1;
@@ -260,6 +268,12 @@ script.onload = () => {
     window.addEventListener('pointermove', (e) => {
         mouse.x = e.clientX;
         mouse.y = e.clientY;
+        // Background parallax for 3D depth
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        const deltaX = (mouse.x - centerX) * 0.03;
+        const deltaY = (mouse.y - centerY) * 0.03;
+        document.body.style.backgroundPosition = `calc(50% + ${deltaX}px) calc(50% + ${deltaY}px)`;
     });
 
     function spawnComet() {
