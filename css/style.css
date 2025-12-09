@@ -103,7 +103,7 @@ textarea {
 }
 
 html, body {
-  background: url('/img/SFONDOO\ MARMO-BIANCO.png') center/cover no-repeat scroll;
+  background: url('../img/sfondo-marmo-bianco.png') center/cover no-repeat scroll;
   color: var(--text);
   font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   overflow-x: hidden;
