@@ -416,4 +416,146 @@ if (window.innerWidth >= 700) {
       hidePopup();
     });
   })();
+
+  // Flip Card System
+  (function() {
+    const flipCards = document.querySelectorAll('.flip-card');
+    
+    if (!flipCards.length) return;
+
+    // Handle card clicks
+    flipCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        // Don't flip if clicking on a link inside the back
+        if (e.target.tagName === 'A' || e.target.closest('.flip-card-back a')) {
+          return;
+        }
+        
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Toggle flip state
+        card.classList.toggle('flipped');
+      });
+    });
+
+    // Close all flipped cards when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.flip-card')) {
+        flipCards.forEach(card => {
+          card.classList.remove('flipped');
+        });
+      }
+    });
+
+    // Close flipped cards on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        flipCards.forEach(card => {
+          card.classList.remove('flipped');
+        });
+      }
+    });
+
+    // Handle link clicks to prevent event bubbling
+    document.querySelectorAll('.flip-card-back a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    });
+  })();
+  (function() {
+    const popup = document.getElementById('service-popup');
+    const popupTitle = document.getElementById('service-title');
+    const popupDescription = document.getElementById('service-description');
+    const popupPhone = document.getElementById('service-phone');
+    const popupPrice = document.getElementById('service-price');
+    const closeButtons = document.querySelectorAll('.elegant-popup-close, .elegant-popup-close-btn');
+    
+    if (!popup) return;
+
+    function openPopup(serviceData) {
+      popupTitle.textContent = serviceData.title;
+      popupDescription.textContent = serviceData.description;
+      popupPhone.href = `tel:${serviceData.phone}`;
+      popupPrice.textContent = serviceData.price || '';
+      
+      popup.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePopup() {
+      popup.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Handle clicks on price cards
+    document.addEventListener('click', (e) => {
+      const priceCard = e.target.closest('.price-card');
+      if (!priceCard) return;
+
+      const serviceName = priceCard.querySelector('h3')?.textContent;
+      const description = priceCard.dataset.description;
+      const phone = priceCard.dataset.phone;
+      const price = priceCard.querySelector('.price-badge')?.textContent;
+
+      if (serviceName && description && phone) {
+        openPopup({
+          title: serviceName,
+          description: description,
+          phone: phone,
+          price: price
+        });
+      }
+    });
+
+    // Handle close buttons
+    closeButtons.forEach(button => {
+      button.addEventListener('click', closePopup);
+    });
+
+    // Close on overlay click
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup || e.target.classList.contains('elegant-popup-overlay')) {
+        closePopup();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && popup.classList.contains('active')) {
+        closePopup();
+      }
+    });
+  })();
+
+  // Click-to-open for service details
+  (function() {
+    const detailsElements = document.querySelectorAll('details.card');
+    if (!detailsElements.length) return;
+
+    detailsElements.forEach(details => {
+      details.addEventListener('toggle', (event) => {
+        if (details.open) {
+          // Close other open details
+          detailsElements.forEach(d => {
+            if (d !== details && d.open) {
+              d.removeAttribute('open');
+            }
+          });
+        }
+      });
+
+      // We need to prevent the default behavior to animate the closing.
+      const summary = details.querySelector('summary');
+      if(summary) {
+        summary.addEventListener('click', (e) => {
+          if (details.open) {
+            e.preventDefault();
+            details.removeAttribute('open');
+          }
+        });
+      }
+    });
+  })();
 })();

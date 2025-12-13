@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="Servizi — Taglio uomo, rasatura tradizionale, regolazione barba e trattamenti. Argjend Barber Shop a Trieste. Chiama: +39 380 283 5412.">
+  <meta name="description" content="Servizi — Taglio uomo, rasatura tradizionale, regolazione barba e pacchetti. Argjend Barber Shop a Trieste. Chiama: +39 380 283 5412.">
 
   <meta property="og:title" content="Servizi — Argjend Barber Shop">
   <meta property="og:type" content="website">
@@ -21,7 +21,7 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#111111">
 </head>
-<body class="static-background">
+<body>
   <header class="site-header reveal reveal-visible">
     <div class="container nav-wrapper">
       <a href="index.html" class="brand" aria-label="Argjend Barber Shop Home">
@@ -38,7 +38,6 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="chi-siamo.html">Chi siamo</a></li>
           <li><a href="servizi.html">Servizi</a></li>
-          <li><a href="prezzi.html">Prezzi</a></li>
           <li><a href="social.html">Social</a></li>
           <li><a href="contatti.html" class="btn btn-primary">Contatti</a></li>
         </ul>
@@ -47,36 +46,317 @@
   </header>
 
   <main>
-    <section class="hero reveal reveal-visible hero--center">
+    <section class="hero reveal reveal-visible">
       <div class="container hero-inner">
         <div class="hero-text">
           <h1>Servizi</h1>
-          <p>Tagli moderni e classici, rasature tradizionali e grooming maschile curato nei dettagli.</p>
+          <p>Listino indicativo. Per informazioni aggiornate chiamaci: <span class="nowrap"><a href="tel:+393802835412">+39 380 283 5412</a></span>.</p>
+          <div class="cta-group">
+                      </div>
         </div>
-        <!-- hero media intentionally removed for a more centered content layout -->
+
       </div>
     </section>
 
     <section class="section section-alt reveal">
       <div class="container">
-        <h2 class="section-title center">Cosa offriamo</h2>
-        <div class="card-grid">
-          <article class="card reveal reveal-delay-1 floaty">
-            <h3>Taglio Uomo</h3>
-            <p>Consultazione e taglio su misura, rifiniture precise, styling.</p>
-          </article>
-          <article class="card reveal reveal-delay-2 floaty">
-            <h3>Rasatura Tradizionale</h3>
-            <p>Panno caldo e rasoio a mano libera per una pelle liscia e protetta.</p>
-          </article>
-          <article class="card reveal reveal-delay-3 floaty">
-            <h3>Regolazione Barba</h3>
-            <p>Linea definita e prodotti mirati per barba e pelle.</p>
-          </article>
-          <article class="card reveal reveal-delay-4 floaty">
-            <h3>Taglio + Barba</h3>
-            <p>Combinazione completa: look ordinato e barba perfetta.</p>
-          </article>
+        <h2 class="section-title center" id="listino-donna">Listino Donna</h2>
+        <div class="price-cards">
+          <div class="flip-card reveal reveal-delay-1" data-service="taglio-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Taglio</h3>
+                <span class="price-badge">15€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Taglio personalizzato con consulenza per trovare lo stile perfetto per te. Incluso asciugatura e styling finale.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-2" data-service="piega-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Piega</h3>
+                <span class="price-badge">da 15€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Piega professionale con prodotti di alta qualità per renderla liscia o mossa secondo i tuoi desideri.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-3" data-service="colore-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Colore</h3>
+                <span class="price-badge">da 30€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Colore personalizzato con prodotti professionali. Copertura dei bianchi o cambio totale di colore per un look nuovo.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-4" data-service="meches-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Meches</h3>
+                <span class="price-badge">da 30€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Meches o balayage per dare luce e profondità al tuo colore. Tecnica personalizzata per un effetto naturale.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-1" data-service="permanente-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Permanente</h3>
+                <span class="price-badge">35€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Permanente delicata per capelli con prodotti moderni che non danneggiano. Effetto duraturo e naturale.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-2" data-service="decolorazione-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Decolorazione</h3>
+                <span class="price-badge">da 25€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Decolorazione professionale per preparare i capelli a nuovi colori. Tecnica sicura che protegge la fibra capillare.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-3" data-service="tonalizzante-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Tonalizzante</h3>
+                <span class="price-badge">da 10€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Tonalizzante per ravvivare il colore o neutralizzare riflessi indesiderati. Effetto immediato e brillantezza.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-4" data-service="ricostruzione-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Ricostruzione capello</h3>
+                <span class="price-badge">15€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Trattamento ricostruttivo per capelli danneggiati. Ripara e fortifica la fibra capillare per capelli sani e forti.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-1" data-service="trattamento-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Trattamento specifico</h3>
+                <span class="price-badge">5€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Trattamento specifico personalizzato secondo le esigenze dei tuoi capelli. Idratante, nutriente o volumizzante.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-2" data-service="extension-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Extension</h3>
+                <span class="price-badge">2,50€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Extension di qualità per allungare o dare volume ai tuoi capelli. Applicazione professionale e look naturale.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-3" data-service="manicure-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Manicure</h3>
+                <span class="price-badge">15€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Manicure completa con smalto tradizionale o semipermanente. Cura delle unghie e cuticole per mani perfette.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-4" data-service="pedicure-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Pedicure</h3>
+                <span class="price-badge">25€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Pedicure completa con cura dei piedi e smalto professionale. Trattamento esfoliante e massaggio rilassante.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-1" data-service="sopracciglia-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Sopracciglia</h3>
+                <span class="price-badge">5€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Rifinizione sopracciglia per uno sguardo più definito e curato. Tecnica precisa per un risultato naturale.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-2" data-service="ceretta-viso-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Ceretta viso</h3>
+                <span class="price-badge">10€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Depilazione precisa del viso con ceretta professionale. Pelle liscia e curata a lungo.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-3" data-service="pulizia-viso-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Pulizia viso vapore</h3>
+                <span class="price-badge">25€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Trattamento completo con vapore per purificare la pelle. Rimuove impurità e lascia la pelle fresca e levigata.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-4" data-service="pulizia-naso-orecchie-donna">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Pulizia naso/orecchie</h3>
+                <span class="price-badge">5€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Rifinizione professionale del naso e orecchie per un look curato e ordinato. Servizio rapido e preciso.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+      <section class="section section-alt reveal">
+      <div class="container">
+        <h2 class="section-title center" id="listino-uomo">Listino Uomo</h2>
+        <div class="price-cards">
+          <div class="flip-card reveal reveal-delay-1" data-service="taglio-barba-uomo">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Taglio + barba + shampoo</h3>
+                <span class="price-badge">20€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Pacchetto completo: taglio personalizzato, regolazione barba professionale e shampoo rinfrescante. Look perfetto dall'inizio alla fine.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-2" data-service="taglio-barba-macchinetta-uomo">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Taglio + barba macchinetta</h3>
+                <span class="price-badge">15€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Taglio preciso con regolazione barba a macchinetta per un look rapido e pulito. Ideale per mantenere lo stile quotidiano.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-3" data-service="taglio-uomo">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Taglio</h3>
+                <span class="price-badge">12€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Taglio personalizzato con consulenza sullo stile. Utilizzo di tecniche moderne e classiche per il look perfetto.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-4" data-service="barba-uomo">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Barba</h3>
+                <span class="price-badge">8€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Regolazione barba professionale con tecnica tradizionale. Modellatura precisa per una barba curata e definita.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-1" data-service="barba-macchinetta-uomo">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Barba macchinetta</h3>
+                <span class="price-badge">5€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Regolazione rapida con macchinetta per un look ordinato in pochi minuti. Perfetta per mantenimento frequente.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-2" data-service="shampoo-uomo">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Shampoo</h3>
+                <span class="price-badge">5€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Shampoo professionale con massaggio rilassante. Purifica e prepara i capelli al taglio.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-3" data-service="tinta-capelli-uomo">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Tinta capelli</h3>
+                <span class="price-badge">15€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Colore professionale per copertura dei bianchi o rinfrescamento del colore. Risultato naturale e duraturo.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal reveal-delay-4" data-service="tinta-barba-uomo">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <h3>Tinta barba</h3>
+                <span class="price-badge">10€</span>
+              </div>
+              <div class="flip-card-back">
+                <p>Colore specifico per barba per uniformare il tono o coprire i bianchi. Effetto naturale e discreto.</p>
+                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -88,6 +368,7 @@
       <div class="social">
         <a href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">Instagram</a>
         <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">Facebook</a>
+        <a href="https://www.tiktok.com/@barbershopargjend1" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">TikTok</a>
         <a href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" aria-label="Maps" title="Maps">Maps</a>
       </div>
     </div>
