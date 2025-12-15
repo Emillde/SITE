@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/scroll-nav.css">
   <meta name="description" content="Social — Segui Argjend Barber Shop su Instagram per foto reali di tagli, barbe e del salone. @barber_shop_argjend1.">
 
   <meta property="og:title" content="Social — Argjend Barber Shop">
@@ -49,18 +50,34 @@
     <section class="hero reveal reveal-visible hero--center">
       <div class="container hero-inner">
         <div class="hero-text">
-          <h1>Social</h1>
-          <p>Scopri foto reali del salone e dei nostri lavori. Seguici su Instagram: <a href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener">@barber_shop_argjend1</a>.</p>
-          <div class="social-buttons">
-            <a class="btn-social btn-ig" href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-            <a class="btn-social btn-fb" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
-            <a class="btn-social btn-tiktok" href="https://www.tiktok.com/@barbershopargjend1" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
-            <a class="btn-social btn-maps" href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" aria-label="Maps">Maps</a>
+          <h1 style="font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 800; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 2.5rem; color: #2c3e50; text-shadow: 0 4px 20px rgba(0,0,0,0.1); position: relative;">
+            Social
+            <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 4px; background: linear-gradient(90deg, transparent, #DAA520, transparent);"></span>
+          </h1>
+          <p style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 300; line-height: 1.6; margin-bottom: 2.5rem; color: #555; max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
+            Scopri foto reali del salone e dei nostri lavori. Sui Social: <a href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener">@barber_shop_argjend1</a>.
+          </p>
+          <div class="social-buttons" style="gap: 1.8rem; justify-content: center;">
+            <a class="btn-social btn-ig" href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Instagram" style="font-size: 1.1rem; padding: 1rem 2rem;">Instagram</a>
+            <a class="btn-social btn-fb" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" style="font-size: 1.1rem; padding: 1rem 2rem;">Facebook</a>
+            <a class="btn-social btn-tiktok" href="https://www.tiktok.com/@barbershopargjend1" target="_blank" rel="noopener" aria-label="TikTok" style="font-size: 1.1rem; padding: 1rem 2rem;">TikTok</a>
+            <a class="btn-social btn-maps" href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" aria-label="Maps" style="font-size: 1.1rem; padding: 1rem 2rem;">Maps</a>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+      <div class="scroll-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p>Scorri per scoprire</p>
+    </div>
+
+    <!-- PARTE INVISIBILE DA IMPLEMENTARE POI -->
     <section class="section reveal">
       <div class="container">
         <h2 class="section-title center">Dal nostro profilo</h2>
@@ -77,7 +94,6 @@
           <a class="social-card reveal reveal-delay-1" href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Apri post su Instagram">
             <img src="https://images.unsplash.com/photo-1562004760-aceed7bb0fe3?q=80&w=800&auto=format&fit=crop" alt="Styling capelli" />
           </a>
-          <!-- removed 'Ingresso salone' image as requested -->
           <a class="social-card reveal reveal-delay-3" href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Apri post su Instagram">
             <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop" alt="Taglio fade" />
           </a>
@@ -85,14 +101,16 @@
             <img src="https://images.unsplash.com/photo-1622296089863-9a57a7a8c8b8?q=80&w=800&auto=format&fit=crop" alt="Poltrona da barbiere" />
           </a>
         </div>
-        <p class="center" style="margin-top:16px"><a class="btn btn-outline" href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener">Segui su Instagram</a></p>
+        <div class="social-cta">
+          <a href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" class="btn btn-primary">Seguici su Instagram</a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer reveal">
     <div class="container footer-inner">
-      <p class="copyright">© <span id="year"></span> Argjend Barber Shop — Tutti i diritti riservati. <a href="contact.html" class="footer-link">Made by Emil de Cristini</a></p>
+      <p class="copyright"> <span id="year"></span> Argjend Barber Shop — Tutti i diritti riservati. <a href="contact.html" class="footer-link">Made by Emil de Cristini</a></p>
       <div class="social">
         <a href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">Instagram</a>
         <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">Facebook</a>
@@ -131,6 +149,7 @@
   }
   </script>
   <script src="js/app.js"></script>
+  <script src="js/scroll-nav.js"></script>
 
   <div id="cookie-consent-popup" class="cookie-popup">
     <div class="cookie-popup-content">

@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/scroll-nav.css">
   <meta name="description" content="Servizi — Taglio uomo, rasatura tradizionale, regolazione barba e pacchetti. Argjend Barber Shop a Trieste. Chiama: +39 380 283 5412.">
 
   <meta property="og:title" content="Servizi — Argjend Barber Shop">
@@ -38,7 +39,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="chi-siamo.html">Chi siamo</a></li>
           <li><a href="servizi.html">Servizi</a></li>
-          <li><a href="social.html">Social</a></li>
+
           <li><a href="contatti.html" class="btn btn-primary">Contatti</a></li>
         </ul>
       </nav>
@@ -46,35 +47,61 @@
   </header>
 
   <main>
-    <section class="hero reveal reveal-visible">
+    <section class="hero reveal reveal-visible hero--center" style="padding: 120px 0 80px;">
       <div class="container hero-inner">
         <div class="hero-text">
-          <h1>Servizi</h1>
-          <p>Listino indicativo. Per informazioni aggiornate chiamaci: <span class="nowrap"><a href="tel:+393802835412">+39 380 283 5412</a></span>.</p>
-          <div class="cta-group">
-                      </div>
+          <h1 style="font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 800; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 2.5rem; color: #2c3e50; text-shadow: 0 4px 20px rgba(0,0,0,0.1); position: relative;">
+            Servizi
+            <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 4px; background: linear-gradient(90deg, transparent, #DAA520, transparent);"></span>
+          </h1>
+          <p style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 300; line-height: 1.6; margin-bottom: 2.5rem; color: #555; max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
+            Listino indicativo. Per informazioni aggiornate chiamaci.
+          </p>
         </div>
-
       </div>
     </section>
 
-    <section class="section section-alt reveal">
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+      <div class="scroll-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p>Scorri per scoprire</p>
+    </div>
+
+    <section class="section section-alt reveal" id="servizi-interattivi">
       <div class="container">
-        <h2 class="section-title center" id="listino-donna">Listino Donna</h2>
-        <div class="price-cards">
-          <div class="flip-card reveal reveal-delay-1" data-service="taglio-donna">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <h3>Taglio</h3>
-                <span class="price-badge">15€</span>
+        <div class="gender-selection">
+          <button class="btn btn-primary" data-gender="donna">Listino Donna</button>
+          <button class="btn btn-outline" data-gender="uomo">Listino Uomo</button>
+        </div>
+
+        <!-- Servizi Donna -->
+        <div id="services-donna" class="services-wrapper">
+          <nav class="category-nav">
+            <button class="category-btn" data-category="capelli-donna">Capelli</button>
+            <button class="category-btn" data-category="mani-piedi-donna">Mani & Piedi</button>
+            <button class="category-btn" data-category="viso-donna">Viso</button>
+          </nav>
+
+          <div id="capelli-donna" class="price-cards-container">
+            <div class="price-cards">
+              <!-- Card from original design -->
+              <div class="flip-card" data-service="taglio-donna">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <h3>Taglio</h3>
+                    <span class="price-badge">15€</span>
+                  </div>
+                  <div class="flip-card-back">
+                    <p>Taglio personalizzato con consulenza per trovare lo stile perfetto per te. Incluso asciugatura e styling finale.</p>
+                    <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+                  </div>
+                </div>
               </div>
-              <div class="flip-card-back">
-                <p>Taglio personalizzato con consulenza per trovare lo stile perfetto per te. Incluso asciugatura e styling finale.</p>
-                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
-              </div>
-            </div>
-          </div>
-          <div class="flip-card reveal reveal-delay-2" data-service="piega-donna">
+              <div class="flip-card" data-service="piega-donna">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Piega</h3>
@@ -86,7 +113,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-3" data-service="colore-donna">
+          <div class="flip-card" data-service="colore-donna">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Colore</h3>
@@ -98,7 +125,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-4" data-service="meches-donna">
+          <div class="flip-card" data-service="meches-donna">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Meches</h3>
@@ -110,7 +137,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-1" data-service="permanente-donna">
+          <div class="flip-card" data-service="permanente-donna">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Permanente</h3>
@@ -122,7 +149,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-2" data-service="decolorazione-donna">
+          <div class="flip-card" data-service="decolorazione-donna">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Decolorazione</h3>
@@ -134,7 +161,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-3" data-service="tonalizzante-donna">
+          <div class="flip-card" data-service="tonalizzante-donna">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Tonalizzante</h3>
@@ -146,7 +173,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-4" data-service="ricostruzione-donna">
+          <div class="flip-card" data-service="ricostruzione-donna">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Ricostruzione capello</h3>
@@ -158,7 +185,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-1" data-service="trattamento-donna">
+          <div class="flip-card" data-service="trattamento-donna">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Trattamento specifico</h3>
@@ -170,7 +197,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-2" data-service="extension-donna">
+          <div class="flip-card" data-service="extension-donna">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Extension</h3>
@@ -182,31 +209,41 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-3" data-service="manicure-donna">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <h3>Manicure</h3>
-                <span class="price-badge">15€</span>
+            </div>
+          </div>
+
+          <div id="mani-piedi-donna" class="price-cards-container">
+            <div class="price-cards">
+              <div class="flip-card" data-service="manicure-donna">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <h3>Manicure</h3>
+                    <span class="price-badge">15€</span>
+                  </div>
+                  <div class="flip-card-back">
+                    <p>Manicure completa con smalto tradizionale o semipermanente. Cura delle unghie e cuticole per mani perfette.</p>
+                    <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+                  </div>
+                </div>
               </div>
-              <div class="flip-card-back">
-                <p>Manicure completa con smalto tradizionale o semipermanente. Cura delle unghie e cuticole per mani perfette.</p>
-                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+              <div class="flip-card" data-service="pedicure-donna">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <h3>Pedicure</h3>
+                    <span class="price-badge">25€</span>
+                  </div>
+                  <div class="flip-card-back">
+                    <p>Pedicure completa con cura dei piedi e smalto professionale. Trattamento esfoliante e massaggio rilassante.</p>
+                    <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-4" data-service="pedicure-donna">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <h3>Pedicure</h3>
-                <span class="price-badge">25€</span>
-              </div>
-              <div class="flip-card-back">
-                <p>Pedicure completa con cura dei piedi e smalto professionale. Trattamento esfoliante e massaggio rilassante.</p>
-                <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
-              </div>
-            </div>
-          </div>
-          <div class="flip-card reveal reveal-delay-1" data-service="sopracciglia-donna">
+
+          <div id="viso-donna" class="price-cards-container">
+            <div class="price-cards">
+               <div class="flip-card" data-service="sopracciglia-donna">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Sopracciglia</h3>
@@ -218,7 +255,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-2" data-service="ceretta-viso-donna">
+          <div class="flip-card" data-service="ceretta-viso-donna">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Ceretta viso</h3>
@@ -230,7 +267,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-3" data-service="pulizia-viso-donna">
+          <div class="flip-card" data-service="pulizia-viso-donna">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Pulizia viso vapore</h3>
@@ -242,7 +279,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-4" data-service="pulizia-naso-orecchie-donna">
+          <div class="flip-card" data-service="pulizia-naso-orecchie-donna">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Pulizia naso/orecchie</h3>
@@ -254,14 +291,19 @@
               </div>
             </div>
           </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
-      <section class="section section-alt reveal">
-      <div class="container">
-        <h2 class="section-title center" id="listino-uomo">Listino Uomo</h2>
-        <div class="price-cards">
-          <div class="flip-card reveal reveal-delay-1" data-service="taglio-barba-uomo">
+
+        <!-- Servizi Uomo -->
+        <div id="services-uomo" class="services-wrapper">
+          <nav class="category-nav">
+            <button class="category-btn" data-category="capelli-barba-uomo">Capelli & Barba</button>
+          </nav>
+
+          <div id="capelli-barba-uomo" class="price-cards-container">
+            <div class="price-cards">
+             <div class="flip-card" data-service="taglio-barba-uomo">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Taglio + barba + shampoo</h3>
@@ -273,7 +315,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-2" data-service="taglio-barba-macchinetta-uomo">
+          <div class="flip-card" data-service="taglio-barba-macchinetta-uomo">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Taglio + barba macchinetta</h3>
@@ -285,7 +327,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-3" data-service="taglio-uomo">
+          <div class="flip-card" data-service="taglio-uomo">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Taglio</h3>
@@ -297,7 +339,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-4" data-service="barba-uomo">
+          <div class="flip-card" data-service="barba-uomo">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Barba</h3>
@@ -309,7 +351,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-1" data-service="barba-macchinetta-uomo">
+          <div class="flip-card" data-service="barba-macchinetta-uomo">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Barba macchinetta</h3>
@@ -321,7 +363,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-2" data-service="shampoo-uomo">
+          <div class="flip-card" data-service="shampoo-uomo">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Shampoo</h3>
@@ -333,7 +375,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-3" data-service="tinta-capelli-uomo">
+          <div class="flip-card" data-service="tinta-capelli-uomo">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Tinta capelli</h3>
@@ -345,7 +387,7 @@
               </div>
             </div>
           </div>
-          <div class="flip-card reveal reveal-delay-4" data-service="tinta-barba-uomo">
+          <div class="flip-card" data-service="tinta-barba-uomo">
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <h3>Tinta barba</h3>
@@ -355,6 +397,8 @@
                 <p>Colore specifico per barba per uniformare il tono o coprire i bianchi. Effetto naturale e discreto.</p>
                 <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
               </div>
+            </div>
+          </div>
             </div>
           </div>
         </div>
@@ -403,6 +447,8 @@
   }
   </script>
   <script src="js/app.js"></script>
+  <script src="js/servizi.js"></script>
+  <script src="js/scroll-nav.js"></script>
 
   <div id="cookie-consent-popup" class="cookie-popup">
     <div class="cookie-popup-content">

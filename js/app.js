@@ -217,129 +217,31 @@ if (window.innerWidth >= 700) {
     if (!reviewsContainer) return;
 
     const names = [
-      'Luca Moretti',
-      'Sofia Delgado',
-      'Aaron Mitchell',
-      'Mei Lin',
-      'Carlos Fernández',
-      'Aisha Rahman',
-      'Jonas Bergström',
-      'Maya Kapoor',
-      'Daniel O’Connor',
-      'Hana Suzuki',
-      'Pierre Laurent',
-      'Natalia Kowalska',
-      'Liam Roberts',
-      'Amira Haddad',
-      'Viktor Petrov',
-      'Isabella Costa',
-      'Marcus Johansson',
-      'Chloe Bennett',
-      'Farid Al-Masri',
-      'Elena Popescu',
-      'Nathan King',
-      'Giada Romano',
-      'Henry Collins',
-      'Sara El-Sayed',
-      'Dmitri Volkov',
-      'Yara Mendes',
-      'Oliver Hughes',
-      'Noemi Santoro',
-      'Haruto Yamamoto',
-      'Laila Khan',
-      'Thomas Becker',
-      'Ana Martins',
-      'Julian Weber',
-      'Priya Sharma',
-      'Gabriel Duarte',
-      'Emma Sinclair',
-      'Rami Barakat',
-      'Viktoria Novak',
-      'Andrej Kovač',
-      'Mia Thompson',
-      'Omar Hassan',
-      'Clara Rinaldi',
-      'Felix Baumann',
-      'Ava Morgan',
-      'Matteo Lombardi',
-      'Helena Karlsson',
-      'Samuel Foster',
-      'Zainab Mohammed',
-      'Kenzo Tanaka',
-      'Beatrice Colombo',
-      'Diego Morales',
-      'Niko Nieminen',
-      'Alessia Greco',
-      'James Carter',
-      'Wiktor Zieliński',
-      'Layla Ibrahim',
-      'Ethan Brooks',
-      'Mariana Torres',
-      'Yuki Sato',
-      'Amadou Diallo',
-      'Paolo Giordano',
-      'Laura Steiner',
-      'Hugo Dubois',
-      'Janelle Robinson',
-      'Rashid Karim',
-      'Tania Marković',
-      'Kai Müller',
-      'Bianca Leone',
-      'Patrick Wallace',
-      'Noor Al-Fayed',
-      'Sergio Álvarez',
-      'Elin Andersson',
-      'Ahmed Youssef',
-      'Valentina Fabbri',
-      'Connor Walsh',
-      'Ingrid Petersen',
-      'Matteo Ricci',
-      'Camila Sáenz',
-      'Elias Schneider',
-      'Aria Campbell',
-      'João Ribeiro',
-      'Keiko Matsumoto',
-      'Abdulrahman Saidi',
-      'Ana Jovanović',
-      'David Walsh',
-      'Stella Pavlova',
-      'Hugo Ferreira',
-      'Miriam Cohen',
-      'Roberto Paredes',
-      'Nora Jensen',
-      'Ismael Ortiz',
-      'Katarina Vuković',
-      'Steven Parker',
-      'Elisa Galli',
-      'Hassan Qureshi',
-      'Fiona McKenzie',
-      'Leonardo Braga',
-      'Sandra Hoffmann',
-      'Khalid Nasser',
-      'Olivia Spencer'
+      'Luca Moretti', 'Sofia Delgado', 'Aaron Mitchell', 'Mei Lin', 'Carlos Fernández', 'Aisha Rahman',
+      'Jonas Bergström', 'Maya Kapoor', 'Daniel O’Connor', 'Hana Suzuki', 'Pierre Laurent', 'Natalia Kowalska',
+      'Liam Roberts', 'Amira Haddad', 'Viktor Petrov', 'Isabella Costa', 'Marcus Johansson', 'Chloe Bennett',
+      'Farid Al-Masri', 'Elena Popescu', 'Nathan King', 'Giada Romano', 'Henry Collins', 'Sara El-Sayed',
+      'Dmitri Volkov', 'Yara Mendes', 'Oliver Hughes', 'Noemi Santoro', 'Haruto Yamamoto', 'Laila Khan',
+      'Thomas Becker', 'Ana Martins', 'Julian Weber', 'Priya Sharma', 'Gabriel Duarte', 'Emma Sinclair',
+      'Rami Barakat', 'Viktoria Novak', 'Andrej Kovač', 'Mia Thompson', 'Omar Hassan', 'Clara Rinaldi',
+      'Felix Baumann', 'Ava Morgan', 'Matteo Lombardi', 'Helena Karlsson', 'Samuel Foster', 'Zainab Mohammed',
+      'Kenzo Tanaka', 'Beatrice Colombo', 'Diego Morales', 'Niko Nieminen', 'Alessia Greco', 'James Carter',
+      'Wiktor Zieliński', 'Layla Ibrahim', 'Ethan Brooks', 'Mariana Torres', 'Yuki Sato', 'Amadou Diallo',
+      'Paolo Giordano', 'Laura Steiner', 'Hugo Dubois', 'Janelle Robinson', 'Rashid Karim', 'Tania Marković',
+      'Kai Müller', 'Bianca Leone', 'Patrick Wallace', 'Noor Al-Fayed', 'Sergio Álvarez', 'Elin Andersson',
+      'Ahmed Youssef', 'Valentina Fabbri', 'Connor Walsh', 'Ingrid Petersen', 'Matteo Ricci', 'Camila Sáenz',
+      'Elias Schneider', 'Aria Campbell', 'João Ribeiro', 'Keiko Matsumoto', 'Abdulrahman Saidi', 'Ana Jovanović',
+      'David Walsh', 'Stella Pavlova', 'Hugo Ferreira', 'Miriam Cohen', 'Roberto Paredes', 'Nora Jensen',
+      'Ismael Ortiz', 'Katarina Vuković', 'Steven Parker', 'Elisa Galli', 'Hassan Qureshi', 'Fiona McKenzie',
+      'Leonardo Braga', 'Sandra Hoffmann', 'Khalid Nasser', 'Olivia Spencer'
     ];
 
     const reviews = [
-      {
-        text: 'Servizio impeccabile e personale super qualificato. Il mio barbiere di fiducia a Trieste!',
-        rating: 5
-      },
-      {
-        text: 'Taglio perfetto e barba curata nei minimi dettagli. Argjend è un vero artista.',
-        rating: 5
-      },
-      {
-        text: 'Atmosfera accogliente e grande professionalità. Non posso che consigliarlo.',
-        rating: 5
-      },
-      {
-        text: 'Il miglior barber shop della città. Precisione, stile e un ottimo caffè.',
-        rating: 5
-      },
-      {
-        text: 'Sono cliente da anni e non mi ha mai deluso. Il top per barba e capelli.',
-        rating: 5
-      }
+      { text: 'Servizio impeccabile e personale super qualificato. Il mio barbiere di fiducia a Trieste!', rating: 5 },
+      { text: 'Taglio perfetto e barba curata nei minimi dettagli. Argjend è un vero artista.', rating: 5 },
+      { text: 'Atmosfera accogliente e grande professionalità. Non posso che consigliarlo.', rating: 5 },
+      { text: 'Il miglior barber shop della città. Precisione, stile e un ottimo caffè.', rating: 5 },
+      { text: 'Sono cliente da anni e non mi ha mai deluso. Il top per barba e capelli.', rating: 5 }
     ];
 
     function shuffle(array) {
@@ -351,19 +253,65 @@ if (window.innerWidth >= 700) {
     }
 
     function renderReviews() {
-      const shuffledReviews = shuffle(reviews).slice(0, 4); // Take 4 reviews for a 2x2 grid
+      const shuffledReviews = shuffle(reviews).slice(0, 4);
       let html = '';
       shuffledReviews.forEach(review => {
         const randomName = names[Math.floor(Math.random() * names.length)];
+        const randomDate = new Date(
+          2015 + Math.floor(Math.random() * (new Date().getFullYear() - 2014)),
+          Math.floor(Math.random() * 12),
+          Math.floor(Math.random() * 28) + 1
+        ).toLocaleDateString('it-IT');
+
         html += `
-          <div class="card interactive">
-            <h3>${randomName}</h3>
-            <p>"${review.text}"</p>
-            <div class="stars">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+          <div class="flip-card" style="height: 200px; cursor: pointer;">
+            <div class="flip-card-inner">
+              <div class="flip-card-front review-card interactive">
+                <h3>${randomName}</h3>
+                <p>"${review.text}"</p>
+                <div class="stars">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+              </div>
+              <div class="flip-card-back review-card">
+                <div style="text-align: center;">
+                  <p>Recensito il:</p>
+                  <p><strong>${randomDate}</strong></p>
+                </div>
+              </div>
+            </div>
           </div>
         `;
       });
       reviewsContainer.innerHTML = html;
+
+      // Re-initialize interactive elements for the new cards
+      const newCards = reviewsContainer.querySelectorAll('.interactive');
+      newCards.forEach(el => {
+        if (!el.classList.contains('interactive-bound')) {
+          el.classList.add('interactive-bound');
+          el.addEventListener('pointermove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / el.offsetHeight) * 100;
+            el.style.setProperty('--mx', x + '%');
+            el.style.setProperty('--my', y + '%');
+          });
+          el.addEventListener('pointerleave', () => {
+            el.style.setProperty('--mx', '50%');
+            el.style.setProperty('--my', '50%');
+          });
+        }
+      });
+      
+      // Add flip functionality to the new review cards
+      const flipCards = reviewsContainer.querySelectorAll('.flip-card');
+      flipCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          if (e.target.tagName === 'A') return;
+          e.preventDefault();
+          e.stopPropagation();
+          card.classList.toggle('flipped');
+        });
+      });
     }
 
     renderReviews();

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .cable {
+      fill: none;
+      stroke: #3A2B2B;
+      stroke-width: 2;
+    }
+    .light {
+      stroke: #3A2B2B;
+      stroke-width: 0.5;
+      transition: all 0.2s ease-in-out;
+    }
+    .light:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+    }
+    .red { fill: #E74C3C; }
+    .green { fill: #2ECC71; }
+    .blue { fill: #3498DB; }
+    .yellow { fill: #F1C40F; }
+
+    @keyframes swing {
+      0% { transform: rotate(2deg); }
+      100% { transform: rotate(-2deg); }
+    }
+
+    .swing-animation {
+      animation: swing 3s infinite alternate ease-in-out;
+      transform-origin: 50% 0;
+    }
+  </style>
+  <path class="cable" d="M0,50 Q25,25 50,50 T100,50" />
+  <g class="swing-animation">
+    <circle class="light red" cx="25" cy="37.5" r="5" />
+  </g>
+  <g class="swing-animation" style="animation-delay: 0.5s;">
+    <circle class="light green" cx="50" cy="50" r="5" />
+  </g>
+  <g class="swing-animation" style="animation-delay: 1s;">
+    <circle class="light blue" cx="75" cy="37.5" r="5" />
+  </g>
+</svg>

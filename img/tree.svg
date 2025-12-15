@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .trunk { fill: #795548; }
+    .tree { fill: #2ECC71; }
+    .star { fill: #F1C40F; }
+  </style>
+  <rect class="trunk" x="40" y="80" width="20" height="20" />
+  <polygon class="tree" points="50,10 20,40 80,40" />
+  <polygon class="tree" points="50,30 25,60 75,60" />
+  <polygon class="tree" points="50,50 30,80 70,80" />
+  <path class="star" d="M50,0 L61.8,38.2 L100,38.2 L69.1,61.8 L80.9,100 L50,76.4 L19.1,100 L30.9,61.8 L0,38.2 L38.2,38.2 Z" />
+</svg>

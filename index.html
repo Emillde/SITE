@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/scroll-nav.css">
   <meta name="description" content="Argjend Barber Shop a Trieste — Tagli uomo e servizi da parrucchiera per donna, con tagli tradizionali e grooming completo. Aperto Lunedì–Sabato 10:00–20:00. Chiama: +39 380 283 5412.">
 
   <meta property="og:title" content="Argjend Barber Shop — Trieste">
@@ -38,7 +39,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="chi-siamo.html">Chi siamo</a></li>
           <li><a href="servizi.html">Servizi</a></li>
-          <li><a href="social.html">Social</a></li>
+
           <li><a href="contatti.html" class="btn btn-primary">Contatti</a></li>
         </ul>
       </nav>
@@ -54,8 +55,8 @@
     <section class="hero hero-stars reveal reveal-visible hero--center">
       <div class="container hero-inner">
         <div class="hero-text">
-          <h1>Argjend Barber Shop</h1>
-          <p>Rasature, cura della barba e tagli moderni, piega, colore e servizi professionali per donna.</p>
+          <h1 class="hero-main-title">Argjend Barber Shop</h1>
+          <p class="hero-subtitle">Rasature, cura della barba e tagli moderni, piega, colore e servizi professionali per donna.</p>
           <div class="cta-group">
             <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
             <a href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" class="btn btn-outline">Come arrivare</a>
@@ -64,53 +65,65 @@
       </div>
     </section>
 
-    <!-- Quick Navigation -->
-    <div class="quick-nav reveal">
-      <div class="container">
-        <p class="nav-subtitle">Naviga</p>
-        <div class="quick-nav-content">
-          <a href="servizi.html" class="quick-nav-link">
-            <span class="quick-nav-text">Servizi</span>
-          </a>
-          <a href="chi-siamo.html" class="quick-nav-link">
-            <span class="quick-nav-text">Chi Siamo</span>
-          </a>
-        </div>
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+      <div class="scroll-icon">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
+      <p>Scorri per scoprire</p>
     </div>
 
-    <!-- Social section -->
-    <section class="section section-alt reveal hero--center" id="social">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <h2>Social</h2>
-          <p>Seguici sui social per aggiornamenti, ispirazioni e promozioni esclusive.</p>
-          <div class="social-buttons">
-            <a href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" class="btn-social btn-ig">Instagram</a>
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="btn-social btn-fb">Facebook</a>
-            <a href="https://www.tiktok.com/@barbershopargjend1" target="_blank" rel="noopener" class="btn-social btn-tiktok">TikTok</a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" class="btn-social btn-maps">Maps</a>
-          </div>
+    <!-- Quick Navigation Menu -->
+    <section class="quick-nav" id="quickNav">
+      <div class="container">
+        <h2 class="quick-nav-title">Navigazione Rapida</h2>
+        <div class="quick-nav-grid">
+          <a href="chi-siamo.html" class="quick-nav-item">
+            <div class="quick-nav-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h3>Chi siamo</h3>
+            <p>Scopri la nostra storia e la passione per il barbering</p>
+          </a>
+          <a href="servizi.html" class="quick-nav-item">
+            <div class="quick-nav-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h3>Servizi</h3>
+            <p>Tagli, rasature e trattamenti per uomo</p>
+          </a>
+          <a href="social.html" class="quick-nav-item">
+            <div class="quick-nav-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="2" ry="2"></rect>
+                <circle cx="8" cy="8" r="3"></circle>
+                <path d="M21 15c0-1-1-2-2-2s-2 1-2 2"></path>
+                <path d="M3 15c0-1 1-2 2-2s2 1 2 2"></path>
+              </svg>
+            </div>
+            <h3>Social</h3>
+            <p>Guarda i nostri lavori su Instagram</p>
+          </a>
         </div>
       </div>
     </section>
-
-
-
-
 
   </main>
 
   <footer class="site-footer reveal">
     <div class="container footer-inner">
-      <p class="copyright">© <span id="year"></span> Argjend Barber Shop — Tutti i diritti riservati.</p>
-      <p><a href="contact.html" class="footer-link">Made by Emil de Cristini</a></p>
-        <div class="social">
-          <a href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">Instagram</a>
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">Facebook</a>
-          <a href="https://www.tiktok.com/@barbershopargjend1" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">TikTok</a>
-          <a href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" aria-label="Maps" title="Maps">Maps</a>
-        </div>
+      <p class="copyright">© <span id="year"></span> Argjend Barber Shop — Tutti i diritti riservati. <a href="contact.html" class="footer-link">Made by Emil de Cristini</a></p>
     </div>
   </footer>
 
@@ -149,6 +162,7 @@
   </script>
 
   <script src="js/app.js"></script>
+  <script src="js/scroll-nav.js"></script>
 
   <div id="cookie-consent-popup" class="cookie-popup">
     <div class="cookie-popup-content">

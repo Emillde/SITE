@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/scroll-nav.css">
+  <link rel="stylesheet" href="css/chi-siamo-scroll.css">
   <meta name="description" content="Chi siamo — Argjend Barber Shop a Trieste. Tagli, rasature e grooming maschile dal 2012. Chiama: +39 380 283 5412.">
 
   <meta property="og:title" content="Chi siamo — Argjend Barber Shop">
@@ -21,7 +23,7 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#111111">
 </head>
-<body class="static-background">
+<body class="static-background chi-siamo">
   <header class="site-header reveal reveal-visible">
     <div class="container nav-wrapper">
       <a href="index.html" class="brand" aria-label="Argjend Barber Shop Home">
@@ -49,11 +51,16 @@
     <section class="hero reveal reveal-visible">
       <div class="container hero-inner">
         <div class="hero-text">
-          <h1>Chi siamo</h1>
-          <p>Barberia per uomo a Trieste. Qualità, cura dei dettagli e stile senza tempo dal 2012. Tradizione, accoglienza e mani esperte con radici autentiche che portano carattere e stile.</p>
-          <div class="cta-group">
-            <a href="tel:+393802835412" class="btn btn-primary">Chiama ora</a>
-            <a href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" class="btn btn-outline">Come arrivare</a>
+          <h1 style="font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 800; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 2.5rem; color: #2c3e50; text-shadow: 0 4px 20px rgba(0,0,0,0.1); position: relative;">
+            Chi siamo
+            <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 4px; background: linear-gradient(90deg, transparent, #DAA520, transparent);"></span>
+          </h1>
+          <p style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 300; line-height: 1.6; margin-bottom: 2.5rem; color: #555; max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
+            Barberia per uomo a Trieste. Qualità, cura dei dettagli e stile senza tempo dal 2012. Tradizione, accoglienza e mani esperte con radici autentiche che portano carattere e stile.
+          </p>
+          <div class="cta-group" style="gap: 1.8rem; justify-content: center;">
+            <a href="tel:+393802835412" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">Chiama ora</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" class="btn btn-outline" style="font-size: 1.1rem; padding: 1rem 2rem;">Come arrivare</a>
           </div>
         </div>
         <div class="hero-media" aria-hidden="true">
@@ -61,8 +68,6 @@
         </div>
       </div>
     </section>
-
-
 
     <section class="section section-alt reveal">
       <div class="container">
@@ -115,6 +120,7 @@
   }
   </script>
   <script src="js/app.js"></script>
+  <script src="js/scroll-nav.js"></script>
 
   <div id="cookie-consent-popup" class="cookie-popup">
     <div class="cookie-popup-content">
