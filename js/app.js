@@ -129,6 +129,71 @@ if (window.innerWidth >= 700) {
     });
   });
 
+  // Social buttons click ripple effect
+  (function() {
+    const socialButtons = document.querySelectorAll('.btn-social');
+    if (!socialButtons.length) return;
+
+    socialButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        // Add click effect class for animation
+        this.classList.add('click-effect');
+        
+        // Remove class after animation completes
+        setTimeout(() => {
+          this.classList.remove('click-effect');
+        }, 600);
+
+        // Create ripple at click position
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.cssText = `
+          position: absolute;
+          width: ${size}px;
+          height: ${size}px;
+          left: ${x}px;
+          top: ${y}px;
+          background: radial-gradient(circle, rgba(218,165,32,0.8) 0%, rgba(184,134,11,0.4) 50%, transparent 70%);
+          border-radius: 50%;
+          transform: scale(0);
+          animation: rippleEffect 0.8s ease-out;
+          pointer-events: none;
+          z-index: 2;
+          box-shadow: 0 0 20px rgba(218,165,32,0.6);
+        `;
+        
+        this.appendChild(ripple);
+        
+        // Remove ripple after animation
+        setTimeout(() => {
+          if (ripple.parentNode) {
+            ripple.parentNode.removeChild(ripple);
+          }
+        }, 800);
+      });
+    });
+
+    // Add ripple animation to CSS if not already present
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes rippleEffect {
+        0% {
+          transform: scale(0);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  })();
+
   // Background parallax for 3D depth
   window.addEventListener('pointermove', (e) => {
     if (prefersReduced || document.body.classList.contains('static-background')) return;
