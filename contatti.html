@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/contact-page.css">
+  <link rel="stylesheet" href="css/scroll-nav.css">
   <meta name="description" content="Contatti — Telefono, indirizzo e orari di Argjend Barber Shop a Trieste. Chiama: +39 380 283 5412.">
 
   <meta property="og:title" content="Contatti — Argjend Barber Shop">
@@ -29,20 +30,20 @@
         <img src="img/logo.png" alt="Logo" class="brand-logo" />
         <span>Argjend Barber Shop</span>
       </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Apri menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <nav id="primary-nav" class="site-nav">
+      <nav class="site-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="chi-siamo.html">Chi siamo</a></li>
           <li><a href="servizi.html">Servizi</a></li>
           <li><a href="social.html">Social</a></li>
-          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="contatti.html" class="btn btn-primary">Contatti</a></li>
         </ul>
       </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
   </header>
 
@@ -54,7 +55,7 @@
             Contattaci
             <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 4px; background: linear-gradient(90deg, transparent, #DAA520, transparent);"></span>
           </h1>
-          <p style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 300; line-height: 1.6; margin-bottom: 2.5rem; color: #555; max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
+          <p style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 300; line-height: 1.6; margin-bottom: 2.5rem; color: #2c3e50; max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
             Per appuntamenti e informazioni chiamaci o scrivici. Siamo aperti Lun–Sab 10:00–20:00.
           </p>
           <div class="cta-group" style="gap: 1.8rem; justify-content: center;">
@@ -63,22 +64,48 @@
           </div>
         </div>
       </div>
-      
-      <!-- Scroll indicator centered in hero -->
-      <div class="scroll-indicator" id="scrollIndicator">
-        <div class="scroll-icon">
-          <span></span>
-          <span></span>
-          <span></span>
+    </section>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+      <div class="scroll-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p>Scorri per scoprire</p>
+    </div>
+
+    <!-- Galleria foto dal salone -->
+    <section class="section reveal">
+      <div class="container">
+        <h2 class="section-title center">Dal nostro profilo</h2>
+        <div class="social-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 750px; margin: 0 auto;">
+          <a class="social-card reveal reveal-delay-1" href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Apri post su Instagram">
+            <img src="img/foto taglio1.jpeg" alt="Taglio di capelli" />
+          </a>
+          <a class="social-card reveal reveal-delay-2" href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Apri post su Instagram">
+            <img src="img/foto taglio2.png" alt="Rifinitura barba" />
+          </a>
+          <a class="social-card reveal reveal-delay-3" href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Apri post su Instagram">
+            <img src="img/foto tqaglio3.png" alt="Attrezzature da barbiere" />
+          </a>
         </div>
-        <p>Scorri per scoprire</p>
+        <div class="social-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 500px; margin: 1rem auto 0;">
+          <a class="social-card reveal reveal-delay-1" href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Apri post su Instagram">
+            <img src="img/foto taglio4.jpeg" alt="Styling capelli" />
+          </a>
+          <a class="social-card reveal reveal-delay-3" href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Apri post su Instagram">
+            <img src="img/foto taglio 5.jpeg" alt="Taglio fade" />
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- Location Section with Map -->
     <section class="section location-section reveal">
       <div class="container">
-        <h2 class="section-title">Dove Siamo</h2>
+        <h2 class="section-title center">Dove Siamo</h2>
         <div class="location-content">
           <div class="location-info">
             <div class="location-details">
@@ -117,8 +144,8 @@
     <!-- Contact Form Section -->
     <section class="section contact reveal">
       <div class="container">
+        <h2 class="section-title center">Invia un messaggio</h2>
         <form id="contactForm" class="contact-form reveal reveal-delay-2">
-          <h3>Invia un messaggio</h3>
           <div class="form-row">
             <label>
               Nome
@@ -145,8 +172,7 @@
 
   <footer class="site-footer reveal">
     <div class="container footer-inner">
-      <p class="copyright">© <span id="year"></span> Argjend Barber Shop — Tutti i diritti riservati.</p>
-      <p><a href="contact.html" class="footer-link">Made by Emil de Cristini</a></p>
+      <p class="copyright"> <span id="year"></span> Argjend Barber Shop — Tutti i diritti riservati. <a href="contact.html" class="footer-link">Made by Emil de Cristini</a></p>
       <div class="social">
         <a href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">Instagram</a>
         <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">Facebook</a>
@@ -185,6 +211,7 @@
   }
   </script>
   <script src="js/app.js"></script>
+  <script src="js/scroll-nav.js"></script>
   
   <script>
     // Map security overlay functionality

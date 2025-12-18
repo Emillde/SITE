@@ -2,7 +2,6 @@
 if (window.innerWidth >= 700) {
   const script = document.createElement('script');
   script.src = 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js';
-  document.head.appendChild(script);
   script.onload = () => {
     const lenis = new Lenis();
     function raf(time) {
@@ -11,6 +10,7 @@ if (window.innerWidth >= 700) {
     }
     requestAnimationFrame(raf);
   };
+  document.head.appendChild(script);
 }
 
 // Mobile navigation toggle
@@ -19,7 +19,7 @@ if (window.innerWidth >= 700) {
   const nav = document.querySelector('.site-nav');
   if (toggle && nav) {
     toggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('open');
+      const isOpen = nav.classList.toggle('active');
       toggle.setAttribute('aria-expanded', String(isOpen));
     });
   }
@@ -39,7 +39,7 @@ if (window.innerWidth >= 700) {
           top: scrollTop + rect.top - headerHeight,
           behavior: 'smooth'
         });
-        nav && nav.classList.remove('open');
+        nav && nav.classList.remove('active');
         toggle && toggle.setAttribute('aria-expanded', 'false');
       }
     });
@@ -57,7 +57,6 @@ if (window.innerWidth >= 700) {
 
   if (revealEls.length) {
     if (prefersReduced || !('IntersectionObserver' in window)) {
-      // Show immediately for reduced motion or older browsers
       revealEls.forEach(makeVisible);
     } else {
       const io = new IntersectionObserver((entries) => {
@@ -91,9 +90,9 @@ if (window.innerWidth >= 700) {
     if (!href || href.startsWith('#') || a.target === '_blank' || e.ctrlKey || e.metaKey) return false;
     try {
       const url = new URL(href, window.location.href);
-      return url.origin === window.location.origin; // same-origin only
+      return url.origin === window.location.origin;
     } catch (err) {
-      return false; // Invalid URL
+      return false;
     }
   }
 
@@ -113,7 +112,6 @@ if (window.innerWidth >= 700) {
   const interactiveSelectors = ['.menu-tile', '.card', '.price-card', '.social-card', '.price-item', '.btn-social'];
   const interactives = document.querySelectorAll(interactiveSelectors.join(','));
   interactives.forEach(el => {
-    // mark as interactive for CSS overlay
     if (!el.classList.contains('interactive')) el.classList.add('interactive');
     el.addEventListener('pointermove', (e) => {
       const rect = el.getBoundingClientRect();
@@ -122,7 +120,6 @@ if (window.innerWidth >= 700) {
       el.style.setProperty('--mx', x + '%');
       el.style.setProperty('--my', y + '%');
     });
-    // on pointerleave reset to center
     el.addEventListener('pointerleave', () => {
       el.style.setProperty('--mx', '50%');
       el.style.setProperty('--my', '50%');
@@ -136,15 +133,11 @@ if (window.innerWidth >= 700) {
 
     socialButtons.forEach(button => {
       button.addEventListener('click', function(e) {
-        // Add click effect class for animation
         this.classList.add('click-effect');
-        
-        // Remove class after animation completes
         setTimeout(() => {
           this.classList.remove('click-effect');
         }, 600);
 
-        // Create ripple at click position
         const ripple = document.createElement('span');
         const rect = this.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
@@ -157,18 +150,16 @@ if (window.innerWidth >= 700) {
           height: ${size}px;
           left: ${x}px;
           top: ${y}px;
-          background: radial-gradient(circle, rgba(218,165,32,0.8) 0%, rgba(184,134,11,0.4) 50%, transparent 70%);
+          background: radial-gradient(circle, rgba(218,165,32,0.6) 0%, transparent 70%);
           border-radius: 50%;
           transform: scale(0);
           animation: rippleEffect 0.8s ease-out;
           pointer-events: none;
           z-index: 2;
-          box-shadow: 0 0 20px rgba(218,165,32,0.6);
         `;
         
         this.appendChild(ripple);
         
-        // Remove ripple after animation
         setTimeout(() => {
           if (ripple.parentNode) {
             ripple.parentNode.removeChild(ripple);
@@ -177,18 +168,11 @@ if (window.innerWidth >= 700) {
       });
     });
 
-    // Add ripple animation to CSS if not already present
     const style = document.createElement('style');
     style.textContent = `
       @keyframes rippleEffect {
-        0% {
-          transform: scale(0);
-          opacity: 1;
-        }
-        100% {
-          transform: scale(4);
-          opacity: 0;
-        }
+        0% { transform: scale(0); opacity: 1; }
+        100% { transform: scale(4); opacity: 0; }
       }
     `;
     document.head.appendChild(style);
@@ -210,15 +194,17 @@ if (window.innerWidth >= 700) {
 
   // Contact form handling (client-side validation + 1 submit per day limit)
   (function() {
-    const EMAIL_TO = 'tuo-indirizzo@esempio.it'; // <--- sostituisci con la mail desiderata
+    const EMAIL_TO = 'tuo-indirizzo@esempio.it';
     const form = document.getElementById('contactForm');
     if (!form) return;
-    // create status element
-    const status = document.createElement('div'); status.className = 'form-status'; form.prepend(status);
+    const status = document.createElement('div'); 
+    status.className = 'form-status'; 
+    form.prepend(status);
     const submitBtn = form.querySelector('button[type="submit"]');
 
     function showStatus(msg, ok = true) {
-      status.textContent = msg; status.style.color = ok ? 'var(--primary)' : '#f66';
+      status.textContent = msg; 
+      status.style.color = ok ? 'var(--primary)' : '#f66';
     }
 
     function isValidEmail(email) {
@@ -236,20 +222,18 @@ if (window.innerWidth >= 700) {
       if (!isValidEmail(email)) { showStatus('Inserisci un indirizzo email valido.', false); return; }
       if (message.length < 10) { showStatus('Il messaggio è troppo breve (minimo 10 caratteri).', false); return; }
 
-      // rate limit: 1 submit per 24h (client-side)
       try {
         const last = localStorage.getItem('lastContactSubmit');
         if (last && (Date.now() - Number(last) < 24 * 3600 * 1000)) {
           showStatus('Hai già inviato un messaggio nelle ultime 24 ore. Riprova più tardi.', false); return;
         }
-      } catch (err) { /* ignore storage errors */ }
+      } catch (err) {}
 
-      // disable button
       if (submitBtn) { submitBtn.disabled = true; }
       showStatus('Invio in corso...');
 
-      // Try to POST to a backend endpoint '/send-contact' (server required). If not available, fallback to mailto.
-      const payload = { name, email, message }; let sent = false;
+      const payload = { name, email, message }; 
+      let sent = false;
       try {
         const res = await fetch('/send-contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
         if (res.ok) { sent = true; }
@@ -258,7 +242,6 @@ if (window.innerWidth >= 700) {
       }
 
       if (!sent) {
-        // fallback: open mail client prefilled (note: user must confirm send)
         const subject = encodeURIComponent('Messaggio dal sito — ' + name);
         const body = encodeURIComponent(message + '\n\n---\nNome: ' + name + '\nEmail: ' + email);
         window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
@@ -282,23 +265,11 @@ if (window.innerWidth >= 700) {
     if (!reviewsContainer) return;
 
     const names = [
-      'Luca Moretti', 'Sofia Delgado', 'Aaron Mitchell', 'Mei Lin', 'Carlos Fernández', 'Aisha Rahman',
-      'Jonas Bergström', 'Maya Kapoor', 'Daniel O’Connor', 'Hana Suzuki', 'Pierre Laurent', 'Natalia Kowalska',
+      'Luca Moretti', 'Sofia Delgado', 'Aaron Mitchell', 'Mei Lin', 'Carlos Fernandez', 'Aisha Rahman',
+      'Jonas Bergstrom', 'Maya Kapoor', 'Daniel OConnor', 'Hana Suzuki', 'Pierre Laurent', 'Natalia Kowalska',
       'Liam Roberts', 'Amira Haddad', 'Viktor Petrov', 'Isabella Costa', 'Marcus Johansson', 'Chloe Bennett',
       'Farid Al-Masri', 'Elena Popescu', 'Nathan King', 'Giada Romano', 'Henry Collins', 'Sara El-Sayed',
-      'Dmitri Volkov', 'Yara Mendes', 'Oliver Hughes', 'Noemi Santoro', 'Haruto Yamamoto', 'Laila Khan',
-      'Thomas Becker', 'Ana Martins', 'Julian Weber', 'Priya Sharma', 'Gabriel Duarte', 'Emma Sinclair',
-      'Rami Barakat', 'Viktoria Novak', 'Andrej Kovač', 'Mia Thompson', 'Omar Hassan', 'Clara Rinaldi',
-      'Felix Baumann', 'Ava Morgan', 'Matteo Lombardi', 'Helena Karlsson', 'Samuel Foster', 'Zainab Mohammed',
-      'Kenzo Tanaka', 'Beatrice Colombo', 'Diego Morales', 'Niko Nieminen', 'Alessia Greco', 'James Carter',
-      'Wiktor Zieliński', 'Layla Ibrahim', 'Ethan Brooks', 'Mariana Torres', 'Yuki Sato', 'Amadou Diallo',
-      'Paolo Giordano', 'Laura Steiner', 'Hugo Dubois', 'Janelle Robinson', 'Rashid Karim', 'Tania Marković',
-      'Kai Müller', 'Bianca Leone', 'Patrick Wallace', 'Noor Al-Fayed', 'Sergio Álvarez', 'Elin Andersson',
-      'Ahmed Youssef', 'Valentina Fabbri', 'Connor Walsh', 'Ingrid Petersen', 'Matteo Ricci', 'Camila Sáenz',
-      'Elias Schneider', 'Aria Campbell', 'João Ribeiro', 'Keiko Matsumoto', 'Abdulrahman Saidi', 'Ana Jovanović',
-      'David Walsh', 'Stella Pavlova', 'Hugo Ferreira', 'Miriam Cohen', 'Roberto Paredes', 'Nora Jensen',
-      'Ismael Ortiz', 'Katarina Vuković', 'Steven Parker', 'Elisa Galli', 'Hassan Qureshi', 'Fiona McKenzie',
-      'Leonardo Braga', 'Sandra Hoffmann', 'Khalid Nasser', 'Olivia Spencer'
+      'Dmitri Volkov', 'Yara Mendes', 'Oliver Hughes', 'Noemi Santoro', 'Haruto Yamamoto', 'Laila Khan'
     ];
 
     const reviews = [
@@ -348,7 +319,6 @@ if (window.innerWidth >= 700) {
       });
       reviewsContainer.innerHTML = html;
 
-      // Re-initialize interactive elements for the new cards
       const newCards = reviewsContainer.querySelectorAll('.interactive');
       newCards.forEach(el => {
         if (!el.classList.contains('interactive-bound')) {
@@ -367,7 +337,6 @@ if (window.innerWidth >= 700) {
         }
       });
       
-      // Add flip functionality to the new review cards
       const flipCards = reviewsContainer.querySelectorAll('.flip-card');
       flipCards.forEach(card => {
         card.addEventListener('click', (e) => {

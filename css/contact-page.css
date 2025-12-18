@@ -25,7 +25,7 @@
 }
 
 .contact-intro {
-  color: var(--muted);
+  color: #2c3e50;
   margin: 1rem 0 2rem;
   font-size: 1.1rem;
   line-height: 1.6;
@@ -54,7 +54,7 @@
 }
 
 .contact-list strong {
-  color: var(--text);
+  color: #2c3e50;
   font-weight: 600;
 }
 
@@ -96,7 +96,7 @@
 .contact-form h3 {
   text-align: center;
   margin: 0 0 2rem;
-  color: var(--text);
+  color: #2c3e50;
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.8rem;
   font-weight: 600;
@@ -108,11 +108,23 @@
   padding: 80px 0;
 }
 
+/* Make Google Maps buttons text black */
+.location-actions .btn-primary,
+.location-actions .btn-outline {
+  color: #000000 !important;
+}
+
+.location-actions .btn-primary:hover,
+.location-actions .btn-outline:hover {
+  color: #000000 !important;
+}
+
+/* Location content centering */
 .location-content {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  align-items: start;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -137,14 +149,14 @@
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.8rem;
   margin: 0 0 1.5rem;
-  color: var(--text);
+  color: #2c3e50;
   font-weight: 600;
 }
 
 .location-details p {
   margin: 0 0 2rem;
   line-height: 1.6;
-  color: #333;
+  color: #2c3e50;
   font-weight: 500;
 }
 
@@ -165,20 +177,24 @@
   text-decoration: underline;
 }
 
+/* Contact actions centering */
 .location-actions {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-top: 2rem;
+  align-items: center;
 }
 
+/* Map container centering */
 .map-container {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(0,0,0,0.15);
   position: relative;
   width: 100%;
-  align-self: flex-start;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .map-overlay {
@@ -209,7 +225,7 @@
 .map-security-message p {
   margin: 0 0 1.5rem;
   font-size: 1.1rem;
-  color: #333;
+  color: #2c3e50;
   font-weight: 500;
 }
 
@@ -231,7 +247,7 @@
   z-index: 10;
 }
 
-/* Mobile Responsive */
+/* Mobile responsive location actions */
 @media (max-width: 992px) {
   .contact-grid {
     grid-template-columns: 1fr;
@@ -246,9 +262,11 @@
   .location-actions {
     flex-direction: row;
     justify-content: center;
+    align-items: center;
   }
 }
 
+/* Mobile responsive location actions */
 @media (max-width: 768px) {
   .contact-info-section,
   .contact-form,
@@ -268,6 +286,7 @@
   
   .location-actions {
     flex-direction: column;
+    align-items: center;
   }
   
   .map-iframe {
