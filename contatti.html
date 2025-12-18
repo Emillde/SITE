@@ -62,57 +62,16 @@
             <a href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" class="btn btn-outline" style="font-size: 1.1rem; padding: 1rem 2rem;">Come arrivare</a>
           </div>
         </div>
-        <!-- hero media removed as requested -->
       </div>
-    </section>
-
-    <!-- Scroll indicator -->
-    <div class="scroll-indicator" id="scrollIndicator">
-      <div class="scroll-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <p>Scorri per scoprire</p>
-    </div>
-
-    <section class="section contact reveal">
-      <div class="container contact-grid">
-        <div class="contact-info-section reveal reveal-delay-1">
-          <h2 class="section-title">Contattaci</h2>
-          <p class="contact-intro">Per appuntamenti e informazioni chiamaci o scrivici. Siamo aperti Lun–Sab 10:00–20:00.</p>
-          <ul class="contact-list">
-            <li><strong>Telefono:</strong> <a href="tel:+393802835412">+39 380 283 5412</a></li>
-            <li><strong>Indirizzo:</strong> Viale Gabriele D'Annunzio 7 (o 7/B), 34138 Trieste TS, Italia</li>
-            <li><strong>Orari:</strong> Lun–Sab 10:00–20:00 • Dom chiuso</li>
-          </ul>
-          <div class="cta-group">
-            <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener">Apri in Google Maps</a>
-            <a class="btn btn-primary" href="tel:+393802835412">Chiama ora</a>
-          </div>
+      
+      <!-- Scroll indicator centered in hero -->
+      <div class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-icon">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <form id="contactForm" class="contact-form reveal reveal-delay-2">
-          <h3>Invia un messaggio</h3>
-          <div class="form-row">
-            <label>
-              Nome
-              <input type="text" name="name" required placeholder="Il tuo nome" />
-            </label>
-          </div>
-          <div class="form-row">
-            <label>
-              Email
-              <input type="email" name="email" required placeholder="nome@email.it" />
-            </label>
-          </div>
-          <div class="form-row">
-            <label>
-              Messaggio
-              <textarea name="message" rows="5" required placeholder="Come possiamo aiutarti?"></textarea>
-            </label>
-          </div>
-          <button type="submit" class="btn btn-primary full">Invia</button>
-        </form>
+        <p>Scorri per scoprire</p>
       </div>
     </section>
 
@@ -135,6 +94,12 @@
           </div>
         </div>
         <div class="map-container">
+          <div class="map-overlay" id="mapOverlay">
+            <div class="map-security-message">
+              <p>Per proteggere la tua privacy, clicca per attivare la mappa</p>
+              <button class="btn btn-primary" id="enableMapBtn">Abilita Mappa</button>
+            </div>
+          </div>
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2845.123456789!2d13.776643!3d45.649726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477b5c8e5e5e5e5e%3A0x5e5e5e5e5e5e5e5e!2sViale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS!5e0!3m2!1sit!2sit!4v1234567890"
             width="100%" 
@@ -146,6 +111,34 @@
             class="map-iframe">
           </iframe>
         </div>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section contact reveal">
+      <div class="container">
+        <form id="contactForm" class="contact-form reveal reveal-delay-2">
+          <h3>Invia un messaggio</h3>
+          <div class="form-row">
+            <label>
+              Nome
+              <input type="text" name="name" required placeholder="Il tuo nome" />
+            </label>
+          </div>
+          <div class="form-row">
+            <label>
+              Email
+              <input type="email" name="email" required placeholder="nome@email.it" />
+            </label>
+          </div>
+          <div class="form-row">
+            <label>
+              Messaggio
+              <textarea name="message" rows="5" required placeholder="Come possiamo aiutarti?"></textarea>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary full">Invia</button>
+        </form>
       </div>
     </section>
   </main>
@@ -192,6 +185,26 @@
   }
   </script>
   <script src="js/app.js"></script>
+  
+  <script>
+    // Map security overlay functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const mapOverlay = document.getElementById('mapOverlay');
+      const enableMapBtn = document.getElementById('enableMapBtn');
+      
+      if (enableMapBtn && mapOverlay) {
+        enableMapBtn.addEventListener('click', function() {
+          mapOverlay.classList.add('hidden');
+          // Optional: Load the actual map src after consent
+          const iframe = mapOverlay.nextElementSibling;
+          if (iframe && iframe.tagName === 'IFRAME') {
+            // The iframe already has src, so we just need to ensure it loads
+            iframe.style.display = 'block';
+          }
+        });
+      }
+    });
+  </script>
 
   <div id="cookie-consent-popup" class="cookie-popup">
     <div class="cookie-popup-content">

@@ -7,6 +7,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const servicesWrappers = document.querySelectorAll('.services-wrapper');
   const allPriceCardContainers = document.querySelectorAll('.price-cards-container');
 
+  // Funzione per scroll fluido verso un elemento
+  function smoothScrollToElement(element) {
+    if (!element) return;
+    
+    const elementRect = element.getBoundingClientRect();
+    const absoluteElementTop = elementRect.top + window.pageYOffset;
+    const offset = 100; // Offset per non far appiccicare l'elemento in cima
+    const targetPosition = absoluteElementTop - offset;
+    
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
+  }
+
   function updateState(gender, category) {
     // Deactivate everything first
     genderButtons.forEach(btn => btn.classList.remove('active'));
@@ -27,7 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
           const categoryContainer = document.getElementById(category);
           
           if (categoryButton) categoryButton.classList.add('active');
-          if (categoryContainer) categoryContainer.classList.add('active');
+          if (categoryContainer) {
+            categoryContainer.classList.add('active');
+            
+            // Scroll fluido verso il contenitore attivo
+            setTimeout(() => {
+              smoothScrollToElement(categoryContainer);
+            }, 100);
+          }
         }
       }
     }
@@ -49,6 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       // Activate the new gender, but no specific category yet
       updateState(gender, null);
+      
+      // Scroll verso il wrapper attivo dopo un breve ritardo
+      setTimeout(() => {
+        const wrapper = document.getElementById(`services-${gender}`);
+        if (wrapper) {
+          smoothScrollToElement(wrapper);
+        }
+      }, 100);
     }
   }
 
