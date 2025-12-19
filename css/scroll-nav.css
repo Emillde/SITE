@@ -188,6 +188,14 @@
 
 /* Mobile responsive for quick nav */
 @media (max-width: 768px) {
+  /* Hide scroll indicator completely on mobile */
+  .scroll-indicator {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  
   .quick-nav {
     padding: 60px 0;
   }

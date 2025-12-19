@@ -264,6 +264,15 @@
     justify-content: center;
     align-items: center;
   }
+  
+  /* Hero section tablet improvements */
+  .hero-text h1 {
+    font-size: clamp(3rem, 6vw, 4.5rem) !important;
+  }
+  
+  .hero-text p {
+    font-size: clamp(1.3rem, 2.3vw, 1.7rem) !important;
+  }
 }
 
 /* Mobile responsive location actions */
@@ -271,7 +280,7 @@
   .contact-info-section,
   .contact-form,
   .location-info {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
   }
   
   .contact-list {
@@ -292,21 +301,102 @@
   .map-iframe {
     height: 350px;
   }
+  
+  /* Hero section mobile improvements */
+  .hero-text h1 {
+    font-size: clamp(2.5rem, 7vw, 4rem) !important;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-text p {
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem) !important;
+    margin-bottom: 2rem;
+  }
+  
+  .cta-group {
+    gap: 1.2rem !important;
+  }
+  
+  .cta-group .btn {
+    font-size: 1rem !important;
+    padding: 0.9rem 1.8rem !important;
+  }
+  
+  /* Social grid mobile */
+  .social-grid[style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+    max-width: 300px !important;
+  }
+  
+  .social-grid[style*="grid-template-columns: repeat(2, 1fr)"] {
+    grid-template-columns: 1fr !important;
+    max-width: 300px !important;
+  }
+  
+  /* Location details mobile */
+  .location-details h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .location-details p {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .location-details strong {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
 }
 
 @media (max-width: 550px) {
   .contact-info-section,
   .contact-form,
   .location-info {
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
   
   .contact-form h3,
   .location-details h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   
   .map-iframe {
-    height: 300px;
+    height: 280px;
+  }
+  
+  /* Hero section small mobile */
+  .hero-text h1 {
+    font-size: clamp(2rem, 6vw, 3rem) !important;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-text p {
+    font-size: clamp(1.1rem, 2vw, 1.4rem) !important;
+    margin-bottom: 1.5rem;
+  }
+  
+  .cta-group .btn {
+    font-size: 0.95rem !important;
+    padding: 0.8rem 1.5rem !important;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  /* Form improvements */
+  .contact-form {
+    padding: 1.5rem;
+  }
+  
+  .form-row input,
+  .form-row textarea {
+    font-size: 16px; /* Prevent zoom on iOS */
+    padding: 1rem;
+  }
+  
+  .btn.full {
+    font-size: 1rem;
+    padding: 1rem;
   }
 }

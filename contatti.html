@@ -47,6 +47,15 @@
     </div>
   </header>
 
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  
+  <!-- Mobile menu close button -->
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Chiudi menu">
+    <span></span>
+    <span></span>
+  </button>
+
   <main>
     <section class="hero reveal reveal-visible">
       <div class="container hero-inner">
@@ -56,7 +65,7 @@
             <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 4px; background: linear-gradient(90deg, transparent, #DAA520, transparent);"></span>
           </h1>
           <p style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 300; line-height: 1.6; margin-bottom: 2.5rem; color: #2c3e50; max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
-            Per appuntamenti e informazioni chiamaci o scrivici. Siamo aperti Lun–Sab 10:00–20:00.
+            Per appuntamenti e informazioni chiamaci o scrivici. Siamo aperti tutta la settimana tranne lunedì 10:00–20:00.
           </p>
           <div class="cta-group" style="gap: 1.8rem; justify-content: center;">
             <a href="tel:+393802835412" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">Chiama ora</a>
@@ -112,7 +121,7 @@
               <h3>Argjend Barber Shop</h3>
               <p><strong>Indirizzo:</strong><br>Viale Gabriele D'Annunzio 7 (o 7/B)<br>34138 Trieste TS, Italia</p>
               <p><strong>Telefono:</strong><br><a href="tel:+393802835412">+39 380 283 5412</a></p>
-              <p><strong>Orari di apertura:</strong><br>Lunedì - Sabato: 10:00 - 20:00<br>Domenica: Chiuso</p>
+              <p><strong>Orari di apertura:</strong><br>Martedì - Domenica: 10:00 - 20:00<br>Lunedì: Chiuso</p>
               <div class="location-actions">
                 <a href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" class="btn btn-primary">Naviga con Google Maps</a>
                 <a href="tel:+393802835412" class="btn btn-outline">Chiama ora</a>
@@ -197,12 +206,12 @@
       "addressCountry": "IT"
     },
     "openingHours": [
-      "Mo 10:00-20:00",
       "Tu 10:00-20:00",
       "We 10:00-20:00",
       "Th 10:00-20:00",
       "Fr 10:00-20:00",
-      "Sa 10:00-20:00"
+      "Sa 10:00-20:00",
+      "Su 10:00-20:00"
     ],
     "sameAs": [
       "https://www.instagram.com/barber_shop_argjend1",

@@ -13,14 +13,46 @@ if (window.innerWidth >= 700) {
   document.head.appendChild(script);
 }
 
-// Mobile navigation toggle
+// Mobile navigation toggle - completamente rifatto e semplificato
 (function() {
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.site-nav');
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('active');
-      toggle.setAttribute('aria-expanded', String(isOpen));
+  const overlay = document.getElementById('mobileMenuOverlay');
+  
+  if (toggle && nav && overlay) {
+    function openMenu() {
+      nav.classList.add('active');
+      overlay.classList.add('active');
+      toggle.classList.add('active');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+    
+    function closeMenu() {
+      nav.classList.remove('active');
+      overlay.classList.remove('active');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+    
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = nav.classList.contains('active');
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+    
+    overlay.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeMenu();
+    });
+    
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('active')) {
+        closeMenu();
+      }
     });
   }
 
@@ -39,8 +71,18 @@ if (window.innerWidth >= 700) {
           top: scrollTop + rect.top - headerHeight,
           behavior: 'smooth'
         });
-        nav && nav.classList.remove('active');
-        toggle && toggle.setAttribute('aria-expanded', 'false');
+        
+        // Chiudi il menu mobile se aperto
+        const nav = document.querySelector('.site-nav');
+        const overlay = document.getElementById('mobileMenuOverlay');
+        const toggle = document.querySelector('.nav-toggle');
+        
+        if (nav && nav.classList.contains('active')) {
+          nav.classList.remove('active');
+          overlay.classList.remove('active');
+          toggle.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
       }
     });
   });
