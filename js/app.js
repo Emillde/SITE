@@ -27,16 +27,15 @@ if (window.innerWidth >= 700) {
       newMenuContainer.classList.add('active');
       toggle.classList.add('active');
       toggle.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden'; // Blocca lo scroll del body
-      document.body.classList.add('mobile-menu-open'); // Aggiunge classe per blocco completo
+      // Don't block body scroll on mobile - only prevent background interactions
+      document.body.classList.add('mobile-menu-open');
     }
     
     function closeNewMenu() {
       newMenuContainer.classList.remove('active');
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = ''; // Ripristina lo scroll
-      document.body.classList.remove('mobile-menu-open'); // Rimuove classe di blocco
+      document.body.classList.remove('mobile-menu-open');
     }
     
     // Toggle del menu con il pulsante hamburger
@@ -159,7 +158,7 @@ if (window.innerWidth >= 700) {
             newMenuContainer.classList.remove('active');
             toggle.classList.remove('active');
             toggle.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
+            document.body.classList.remove('mobile-menu-open');
           }
         }
       });
@@ -583,12 +582,12 @@ if (window.innerWidth >= 700) {
       popupPrice.textContent = serviceData.price || '';
       
       popup.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('popup-open');
     }
 
     function closePopup() {
       popup.classList.remove('active');
-      document.body.style.overflow = '';
+      document.body.classList.remove('popup-open');
     }
 
     // Handle clicks on price cards

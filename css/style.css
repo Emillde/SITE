@@ -50,7 +50,8 @@ body {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
+  height: var(--vh);
   background: linear-gradient(135deg, #DAA520, #FFD700, #DAA520);
   z-index: 9999;
   display: flex;
@@ -373,13 +374,12 @@ body.switching {
     pointer-events: auto;
   }
   
-  /* Block scrolling completely when menu is open on mobile */
+  /* Allow scrolling when menu is open on mobile - only block background interactions */
   body.mobile-menu-open {
-    overflow: hidden !important;
-    position: fixed !important;
-    width: 100% !important;
-    height: 100% !important;
-    touch-action: none !important;
+    position: relative !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    touch-action: pan-y !important;
     -webkit-overflow-scrolling: touch !important;
   }
 }
@@ -420,13 +420,12 @@ body.switching {
     pointer-events: auto;
   }
   
-  /* Block scrolling completely when menu is open on mobile */
+  /* Allow scrolling when menu is open on mobile - only block background interactions */
   body.mobile-menu-open {
-    overflow: hidden !important;
-    position: fixed !important;
-    width: 100% !important;
-    height: 100% !important;
-    touch-action: none !important;
+    position: relative !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    touch-action: pan-y !important;
     -webkit-overflow-scrolling: touch !important;
   }
 }
@@ -501,8 +500,44 @@ html {
   scroll-padding-top: 80px;
   box-sizing: border-box;
 }
+
 *, *::before, *::after {
   box-sizing: inherit;
+}
+
+/* Safe mobile scrolling defaults */
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+}
+
+/* Handle popup open state - don't block scrolling on mobile */
+body.popup-open {
+  overflow-x: hidden;
+  overflow-y: auto;
+  touch-action: pan-y;
+}
+
+/* Handle mobile menu open state - only prevent background interactions */
+body.mobile-menu-open {
+  overflow-x: hidden;
+  overflow-y: auto;
+  touch-action: pan-y;
+}
+
+/* Fix viewport height issues on mobile */
+@supports (height: 100dvh) {
+  :root {
+    --vh: 100dvh;
+  }
+}
+
+@supports not (height: 100dvh) {
+  :root {
+    --vh: 100vh;
+  }
 }
 
 /*
@@ -909,7 +944,8 @@ textarea {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
+    height: var(--vh);
     background: rgba(0, 0, 0, 0.8);
     z-index: 9998;
   }
@@ -928,7 +964,8 @@ textarea {
     right: -100%;
     width: 85%;
     max-width: 400px;
-    height: 100vh;
+    height: 100dvh;
+    height: var(--vh);
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     backdrop-filter: blur(20px);
     box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
@@ -1461,7 +1498,8 @@ textarea {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
+  height: var(--vh);
   z-index: 99999;
   opacity: 0;
   visibility: hidden;
@@ -1869,7 +1907,8 @@ body::before {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
+  height: var(--vh);
   background: url('../img/sfondo-marmo-bianco.png') center/cover no-repeat;
   z-index: -1;
 }
@@ -1879,7 +1918,8 @@ html, body {
   color: var(--text);
   font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   overflow-x: hidden;
-  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: var(--vh);
 }
 
 /* Estendi lo sfondo animato anche all'area principale */
@@ -1909,13 +1949,11 @@ img { max-width: 100%; height: auto; display: block; border-radius: 10px; }
 .site-header .btn-primary:hover { background: black; color: white; border-color: black; }
 .nav-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 40px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  width: min(92%, var(--maxw));
+  margin-inline: auto;
 }
 
 .brand { 
@@ -1928,8 +1966,6 @@ img { max-width: 100%; height: auto; display: block; border-radius: 10px; }
   font-size: 1.2rem; 
   letter-spacing: .2px; 
   text-shadow: 0 1px 0 rgba(0,0,0,.35); 
-  flex: 1;
-  justify-content: flex-start;
 }
 
 .brand-logo { 
@@ -1943,7 +1979,6 @@ img { max-width: 100%; height: auto; display: block; border-radius: 10px; }
 }
 
 .site-nav { 
-  flex: 1;
   display: flex;
   justify-content: center;
 }
@@ -2030,7 +2065,8 @@ img { max-width: 100%; height: auto; display: block; border-radius: 10px; }
   background: radial-gradient(1200px 400px at 20% -10%, rgba(218,165,32,.08), transparent);
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: var(--vh);
   display: flex;
   align-items: center;
 }
@@ -3029,30 +3065,82 @@ a[href^="tel:"] { color: var(--text); text-decoration-color: rgba(184,134,11,0.4
   z-index: 100;
 }
 
-/* Fix for mobile touch interactions */
+/* MOBILE: Fix review cards text visibility and layout */
 @media (max-width: 768px) {
   .flip-card {
-    min-height: 140px;
+    min-height: 180px !important;
+    aspect-ratio: 1/1 !important;
   }
   
-  .price-cards {
-    padding: 20px 10px;
+  .flip-card-inner {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    padding: 1.2rem !important;
   }
   
   .flip-card-front h3 {
-    font-size: 0.9rem;
-    margin: 0.8rem 0 0.5rem 0;
+    font-size: 1rem !important;
+    margin: 0.5rem 0 0.8rem 0 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
   }
   
-  .flip-card-front .price-badge {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
+  .flip-card-front p {
+    font-size: 0.8rem !important;
+    line-height: 1.3 !important;
+    margin: 0 0 0.8rem 0 !important;
+    text-align: center !important;
+    color: #666 !important;
   }
   
-  /* Fix for touch targets */
+  .flip-card-front .stars {
+    font-size: 1rem !important;
+    margin: 0.5rem 0 !important;
+  }
+  
+  .flip-card-hint {
+    font-size: 0.65rem !important;
+    margin-top: 0.8rem !important;
+  }
+  
+  .flip-card-back p {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    margin: 0 0 1rem 0 !important;
+    text-align: center !important;
+  }
+  
+  .flip-card-back .btn {
+    font-size: 0.8rem !important;
+    padding: 0.6rem 1.2rem !important;
+    min-height: 44px !important;
+    min-width: 120px !important;
+  }
+}
+
+/* MOBILE: General button optimization */
+@media (max-width: 768px) {
   .btn {
     min-height: 44px;
     min-width: 44px;
+    padding: 12px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 12px;
+  }
+  
+  .btn-primary {
+    padding: 14px 24px;
+    font-size: 0.9rem;
+  }
+  
+  .btn-outline {
+    padding: 12px 20px;
+    font-size: 0.85rem;
   }
   
   .nav-toggle {
@@ -3062,6 +3150,98 @@ a[href^="tel:"] { color: var(--text); text-decoration-color: rgba(184,134,11,0.4
   
   .quick-nav-item {
     min-height: 44px;
+  }
+  
+  /* MOBILE: Review cards grid optimization */
+  .price-cards {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    padding: 20px 15px !important;
+  }
+  
+  .flip-card {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+  
+  /* MOBILE: Text overflow prevention */
+  .flip-card-front h3,
+  .flip-card-front p,
+  .flip-card-back p {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+  }
+  
+  /* MOBILE: Better spacing for review content */
+  .flip-card-front {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+  
+  .flip-card-front .stars {
+    margin-top: auto !important;
+  }
+}
+
+/* MOBILE: Small screen optimization (up to 480px) */
+@media (max-width: 480px) {
+  .flip-card {
+    min-height: 160px !important;
+    aspect-ratio: 1/1 !important;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    padding: 1rem !important;
+  }
+  
+  .flip-card-front h3 {
+    font-size: 0.9rem !important;
+    line-height: 1.1 !important;
+    margin: 0.4rem 0 0.6rem 0 !important;
+  }
+  
+  .flip-card-front p {
+    font-size: 0.75rem !important;
+    line-height: 1.2 !important;
+    margin: 0 0 0.6rem 0 !important;
+  }
+  
+  .flip-card-front .stars {
+    font-size: 0.9rem !important;
+    margin: 0.4rem 0 !important;
+  }
+  
+  .flip-card-hint {
+    font-size: 0.6rem !important;
+    margin-top: 0.6rem !important;
+  }
+  
+  .flip-card-back p {
+    font-size: 0.8rem !important;
+    line-height: 1.3 !important;
+    margin: 0 0 0.8rem 0 !important;
+  }
+  
+  .flip-card-back .btn {
+    font-size: 0.75rem !important;
+    padding: 0.5rem 1rem !important;
+    min-height: 40px !important;
+    min-width: 100px !important;
+  }
+  
+  /* MOBILE: Button optimization for small screens */
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    min-height: 40px;
+  }
+  
+  .btn-primary {
+    padding: 12px 20px;
+    font-size: 0.85rem;
   }
 }
 
