@@ -13,13 +13,83 @@ if (window.innerWidth >= 700) {
   document.head.appendChild(script);
 }
 
-// Mobile navigation toggle - completamente rifatto e semplificato
+// NUOVO MENU MOBILE SEPARATO - Solo per mobile (e test desktop)
+(function() {
+  const toggle = document.querySelector('.nav-toggle');
+  const newMenuContainer = document.getElementById('mobileMenuContainer');
+  const newMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+  const newMenuCloseBtn = document.getElementById('mobileMenuCloseBtn');
+  
+  // Funziona su mobile e per test su desktop
+  if (toggle && newMenuContainer && newMenuBackdrop && newMenuCloseBtn) {
+    
+    function openNewMenu() {
+      newMenuContainer.classList.add('active');
+      toggle.classList.add('active');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden'; // Blocca lo scroll del body
+      document.body.classList.add('mobile-menu-open'); // Aggiunge classe per blocco completo
+    }
+    
+    function closeNewMenu() {
+      newMenuContainer.classList.remove('active');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = ''; // Ripristina lo scroll
+      document.body.classList.remove('mobile-menu-open'); // Rimuove classe di blocco
+    }
+    
+    // Toggle del menu con il pulsante hamburger
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = newMenuContainer.classList.contains('active');
+      if (isOpen) {
+        closeNewMenu();
+      } else {
+        openNewMenu();
+      }
+    });
+    
+    // Chiudi con il pulsante X nel menu
+    newMenuCloseBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeNewMenu();
+    });
+    
+    // Chiudi cliccando sul backdrop
+    newMenuBackdrop.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeNewMenu();
+    });
+    
+    // Chiudi con tasto Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && newMenuContainer.classList.contains('active')) {
+        closeNewMenu();
+      }
+    });
+    
+    // Chiudi quando si clicca su un link nel menu
+    const menuLinks = newMenuContainer.querySelectorAll('.mobile-menu-nav a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        // Attendi un po' prima di chiudere per permettere la navigazione
+        setTimeout(() => {
+          closeNewMenu();
+        }, 100);
+      });
+    });
+  }
+})();
+
+// Mobile navigation toggle - completamente rifatto e semplificato (versione originale per desktop)
 (function() {
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.site-nav');
   const overlay = document.getElementById('mobileMenuOverlay');
   
-  if (toggle && nav && overlay) {
+  // Funziona solo su desktop/tablet (NON su mobile)
+  if (window.innerWidth > 768 && toggle && nav && overlay) {
     function openMenu() {
       nav.classList.add('active');
       overlay.classList.add('active');
@@ -57,35 +127,43 @@ if (window.innerWidth >= 700) {
   }
 
   // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const id = a.getAttribute('href');
-      const el = id && document.querySelector(id);
-      if (el) {
-        e.preventDefault();
-        const header = document.querySelector('.site-header');
-        const headerHeight = header ? header.offsetHeight : 0;
-        const rect = el.getBoundingClientRect();
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        window.scrollTo({
-          top: scrollTop + rect.top - headerHeight,
-          behavior: 'smooth'
-        });
-        
-        // Chiudi il menu mobile se aperto
-        const nav = document.querySelector('.site-nav');
-        const overlay = document.getElementById('mobileMenuOverlay');
-        const toggle = document.querySelector('.nav-toggle');
-        
-        if (nav && nav.classList.contains('active')) {
-          nav.classList.remove('active');
-          overlay.classList.remove('active');
-          toggle.classList.remove('active');
-          toggle.setAttribute('aria-expanded', 'false');
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        const el = id && document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          const header = document.querySelector('.site-header');
+          const headerHeight = header ? header.offsetHeight : 0;
+          const rect = el.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          window.scrollTo({
+            top: scrollTop + rect.top - headerHeight,
+            behavior: 'smooth'
+          });
+          
+          // Chiudi il menu mobile se aperto (sia vecchio che nuovo)
+          const nav = document.querySelector('.site-nav');
+          const overlay = document.getElementById('mobileMenuOverlay');
+          const toggle = document.querySelector('.nav-toggle');
+          const newMenuContainer = document.getElementById('mobileMenuContainer');
+          
+          if (nav && nav.classList.contains('active')) {
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
+            toggle.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+          
+          if (newMenuContainer && newMenuContainer.classList.contains('active')) {
+            newMenuContainer.classList.remove('active');
+            toggle.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          }
         }
-      }
+      });
     });
-  });
 
   // Dynamic year
   const yearEl = document.getElementById('year');
@@ -236,7 +314,7 @@ if (window.innerWidth >= 700) {
 
   // Contact form handling (client-side validation + 1 submit per day limit)
   (function() {
-    const EMAIL_TO = 'tuo-indirizzo@esempio.it';
+    const EMAIL_TO = 'Argjend.ak10@gmail.com';
     const form = document.getElementById('contactForm');
     if (!form) return;
     const status = document.createElement('div'); 

@@ -55,15 +55,37 @@
     <span></span>
   </button>
 
+  <!-- Nuovo Menu Mobile Separato -->
+  <div class="mobile-menu-container" id="mobileMenuContainer">
+    <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+    <div class="mobile-menu-panel" id="mobileMenuPanel">
+      <div class="mobile-menu-header">
+        <button class="mobile-menu-close-btn" id="mobileMenuCloseBtn" aria-label="Chiudi menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav class="mobile-menu-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="servizi.html">Servizi</a></li>
+          <li><a href="social.html">Social</a></li>
+          <li><a href="contatti.html" class="btn btn-primary mobile-menu-btn">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
   <main>
     <section class="hero reveal reveal-visible hero--center" style="padding: 120px 0 80px;">
       <div class="container hero-inner">
         <div class="hero-text">
-          <h1 style="font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 800; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 2.5rem; color: #2c3e50; text-shadow: 0 4px 20px rgba(0,0,0,0.1); position: relative;">
+          <h1 style="font-size: clamp(3.5rem, 8vw, 6rem); font-weight: 800; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 2.5rem; color: #2c3e50; text-shadow: 0 4px 20px rgba(0,0,0,0.1); position: relative;" data-translate="servizi_title">
             Servizi
             <span style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 120px; height: 4px; background: linear-gradient(90deg, transparent, #DAA520, transparent);"></span>
           </h1>
-          <p style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 300; line-height: 1.6; margin-bottom: 2.5rem; color: #555; max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
+          <p style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 300; line-height: 1.6; margin-bottom: 2.5rem; color: #555; max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;" data-translate="servizi_desc">
             Listino indicativo. Per informazioni aggiornate chiamaci.
           </p>
         </div>
@@ -77,21 +99,21 @@
         <span></span>
         <span></span>
       </div>
-      <p>Scorri per scoprire</p>
+      <p data-translate="scroll_discover">Scorri per scoprire</p>
     </div>
 
     <section class="section section-alt reveal" id="servizi-interattivi">
       <div class="container">
         <div class="gender-selection">
-          <button class="btn btn-primary" data-gender="donna">Listino Donna</button>
-          <button class="btn btn-outline" data-gender="uomo">Listino Uomo</button>
+          <button class="btn btn-primary" data-gender="donna" data-translate="servizi_donna">Donna</button>
+          <button class="btn btn-outline" data-gender="uomo" data-translate="servizi_uomo">Uomo</button>
         </div>
 
         <!-- Servizi Donna -->
         <div id="services-donna" class="services-wrapper">
           <nav class="category-nav">
-            <button class="category-btn" data-category="capelli-donna">Capelli</button>
-            <button class="category-btn" data-category="mani-piedi-donna">Mani & Piedi</button>
+            <button class="category-btn" data-category="capelli-donna" data-translate="servizi_capelli">Capelli</button>
+            <button class="category-btn" data-category="mani-piedi-donna" data-translate="servizi_manipiedi">Mani & Piedi</button>
           </nav>
 
           <div id="capelli-donna" class="price-cards-container">
@@ -266,7 +288,7 @@
         <!-- Servizi Uomo -->
         <div id="services-uomo" class="services-wrapper">
           <nav class="category-nav">
-            <button class="category-btn" data-category="capelli-barba-uomo">Capelli & Barba</button>
+            <button class="category-btn" data-category="capelli-barba-uomo" data-translate="servizi_capellibarba">Capelli & Barba</button>
           </nav>
 
           <div id="capelli-barba-uomo" class="price-cards-container">
@@ -384,10 +406,10 @@
 
   <footer class="site-footer reveal">
     <div class="container footer-inner">
-      <p class="copyright">© <span id="year"></span> Argjend Barber Shop — Tutti i diritti riservati. <a href="contact.html" class="footer-link">Made by Emil de Cristini</a></p>
+      <p class="copyright" data-translate="copyright">© <span id="year"></span> Argjend Barber Shop — Tutti i diritti riservati. <a href="contact.html" class="footer-link">Made by Emil de Cristini</a></p>
       <div class="social">
         <a href="https://www.instagram.com/barber_shop_argjend1" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">Instagram</a>
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">Facebook</a>
+        <a href="https://www.facebook.com/profile.php?id=100063849078413&sk=reels_tab" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">Facebook</a>
         <a href="https://www.tiktok.com/@barbershopargjend1" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok">TikTok</a>
         <a href="https://www.google.com/maps/search/?api=1&query=Viale+Gabriele+D%E2%80%99Annunzio+7%2C+34138+Trieste+TS" target="_blank" rel="noopener" aria-label="Maps" title="Maps">Maps</a>
       </div>
@@ -425,13 +447,14 @@
   <script src="js/app.js"></script>
   <script src="js/servizi.js"></script>
   <script src="js/scroll-nav.js"></script>
+  <script src="js/language-switcher.js"></script>
 
   <div id="cookie-consent-popup" class="cookie-popup">
     <div class="cookie-popup-content">
-      <p>Questo sito utilizza i cookie per migliorare la tua esperienza. <a href="/privacy.html">Leggi la nostra policy.</a></p>
+      <p data-translate="cookie_text">Questo sito utilizza i cookie per migliorare la tua esperienza. <a href="/privacy.html">Leggi la nostra policy.</a></p>
       <div class="cookie-popup-buttons">
-        <button id="cookie-accept-btn" class="btn btn-primary">Accetta</button>
-        <button id="cookie-decline-btn" class="btn btn-outline">Rifiuta</button>
+        <button id="cookie-accept-btn" class="btn btn-primary" data-translate="cookie_accept">Accetta</button>
+        <button id="cookie-decline-btn" class="btn btn-outline" data-translate="cookie_decline">Rifiuta</button>
       </div>
     </div>
   </div>
