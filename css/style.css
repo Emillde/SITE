@@ -510,7 +510,6 @@ html, body {
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  touch-action: manipulation;
 }
 
 /* Handle popup open state - don't block scrolling on mobile */
@@ -1493,7 +1492,7 @@ textarea {
 
 /* Container principale del nuovo menu mobile */
 .mobile-menu-container {
-  display: block; /* Mostra sempre per test */
+  display: none; /* Nascondo quando non attivo */
   position: fixed;
   top: 0;
   left: 0;
@@ -1729,10 +1728,44 @@ textarea {
 
 /* Media query specifica per mobile - pagina servizi */
 @media (max-width: 768px) {
+  /* Fix scrolling mobile */
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y !important;
+    position: relative !important;
+    min-height: auto !important;
+  }
+  
+  main {
+    min-height: auto !important;
+    overflow-y: auto !important;
+  }
+  
+  /* Previeni interferenze flip card con scrolling */
+  .flip-card {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+  }
+  
+  .flip-card-inner {
+    pointer-events: none !important;
+  }
+  
+  .flip-card.flipped .flip-card-inner {
+    pointer-events: auto !important;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    pointer-events: auto !important;
+  }
   
   /* Sezione servizi interattivi */
   #servizi-interattivi {
     padding: 2rem 0 !important;
+    overflow-y: auto !important;
   }
   
   /* Pulsanti di selezione genere */
@@ -1801,23 +1834,31 @@ textarea {
     height: 100% !important;
   }
   
-  .flip-card-front,
-  .flip-card-back {
+  #servizi-interattivi .flip-card-front,
+  #servizi-interattivi .flip-card-back {
     width: 100% !important;
     height: 100% !important;
     padding: 1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
   
-  .flip-card-front h3 {
+  #servizi-interattivi .flip-card-front h3 {
     font-size: 1rem !important;
-    margin-bottom: 0.5rem !important;
+    margin: 0 !important;
     line-height: 1.2 !important;
+    text-align: center !important;
   }
   
-  .flip-card-front .price-badge {
+  #servizi-interattivi .flip-card-front .price-badge {
     font-size: 0.9rem !important;
     padding: 0.3rem 0.8rem !important;
-    margin-bottom: 0.5rem !important;
+    margin: 0 !important;
+    position: absolute !important;
+    top: 16px !important;
+    right: 16px !important;
   }
   
   .flip-card-hint {
@@ -3067,6 +3108,40 @@ a[href^="tel:"] { color: var(--text); text-decoration-color: rgba(184,134,11,0.4
 
 /* MOBILE: Fix review cards text visibility and layout */
 @media (max-width: 768px) {
+  /* Fix scrolling mobile */
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y !important;
+    position: relative !important;
+    min-height: auto !important;
+  }
+  
+  main {
+    min-height: auto !important;
+    overflow-y: auto !important;
+  }
+  
+  /* Previeni interferenze flip card con scrolling */
+  .flip-card {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+  }
+  
+  .flip-card-inner {
+    pointer-events: none !important;
+  }
+  
+  .flip-card.flipped .flip-card-inner {
+    pointer-events: auto !important;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    pointer-events: auto !important;
+  }
+  
   .flip-card {
     min-height: 180px !important;
     aspect-ratio: 1/1 !important;
@@ -3187,6 +3262,40 @@ a[href^="tel:"] { color: var(--text); text-decoration-color: rgba(184,134,11,0.4
 
 /* MOBILE: Small screen optimization (up to 480px) */
 @media (max-width: 480px) {
+  /* Fix scrolling mobile */
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y !important;
+    position: relative !important;
+    min-height: auto !important;
+  }
+  
+  main {
+    min-height: auto !important;
+    overflow-y: auto !important;
+  }
+  
+  /* Previeni interferenze flip card con scrolling */
+  .flip-card {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+  }
+  
+  .flip-card-inner {
+    pointer-events: none !important;
+  }
+  
+  .flip-card.flipped .flip-card-inner {
+    pointer-events: auto !important;
+  }
+  
+  .flip-card-front,
+  .flip-card-back {
+    pointer-events: auto !important;
+  }
+  
   .flip-card {
     min-height: 160px !important;
     aspect-ratio: 1/1 !important;
