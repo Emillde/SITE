@@ -188,12 +188,18 @@
 
 /* Mobile responsive for quick nav */
 @media (max-width: 768px) {
-  /* Hide scroll indicator completely on mobile */
+  /* Hide scroll indicator completely on mobile - remove it entirely */
   .scroll-indicator {
-    display: none !important;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
+    z-index: -9999 !important;
   }
   
   .quick-nav {
