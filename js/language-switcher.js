@@ -38,7 +38,7 @@ const translations = {
     
     // Contatti
     contatti_title: "Contattaci",
-    contatti_desc: "Per appuntamenti e informazioni chiamaci o scrivici. Siamo aperti tutta la settimana tranne lunedì 10:00–20:00.",
+    contatti_desc: "Per appuntamenti e informazioni chiamaci o scrivici. Siamo aperti tutta la settimana tranne lunedì 09:00–20:00.",
     dove_siamo: "Dove Siamo",
     indirizzo: "Indirizzo",
     telefono: "Telefono",
@@ -110,7 +110,7 @@ const translations = {
     
     // Contatti
     contatti_title: "Contact Us",
-    contatti_desc: "For appointments and information call or write to us. Open all week except Monday 10:00–20:00.",
+    contatti_desc: "For appointments and information call or write to us. Open all week except Monday 09:00–20:00.",
     dove_siamo: "Where We Are",
     indirizzo: "Address",
     telefono: "Phone",
@@ -182,7 +182,7 @@ const translations = {
     
     // Contatti
     contatti_title: "Kontaktoni",
-    contatti_desc: "Për takime dhe informata thirrni ose shkruani ne. Hapur të gjithë javën përveç hënës 10:00–20:00.",
+    contatti_desc: "Për takime dhe informata thirrni ose shkruani ne. Hapur të gjithë javën përveç hënës 09:00–20:00.",
     dove_siamo: "Ku Gjendemi",
     indirizzo: "Adresa",
     telefono: "Telefoni",

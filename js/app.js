@@ -1,5 +1,5 @@
 // Lenis smooth scrolling - disabled on mobile to avoid conflicts with touch scrolling
-if (window.innerWidth >= 700) {
+if (window.innerWidth >= 992) {
   const script = document.createElement('script');
   script.src = 'https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js';
   script.onload = () => {
@@ -13,25 +13,24 @@ if (window.innerWidth >= 700) {
   document.head.appendChild(script);
 }
 
-// NUOVO MENU MOBILE SEPARATO - Solo per mobile (e test desktop)
+// UNIFIED MOBILE MENU SYSTEM - Solo per mobile (sotto 991px)
 (function() {
   const toggle = document.querySelector('.nav-toggle');
   const newMenuContainer = document.getElementById('mobileMenuContainer');
   const newMenuBackdrop = document.getElementById('mobileMenuBackdrop');
   const newMenuCloseBtn = document.getElementById('mobileMenuCloseBtn');
   
-  // Funziona su mobile e per test su desktop
-  if (toggle && newMenuContainer && newMenuBackdrop && newMenuCloseBtn) {
+  // Funziona solo su mobile (sotto 991px)
+  if (window.innerWidth < 992 && toggle && newMenuContainer && newMenuBackdrop && newMenuCloseBtn) {
     
-    function openNewMenu() {
+    function openMenu() {
       newMenuContainer.classList.add('active');
       toggle.classList.add('active');
       toggle.setAttribute('aria-expanded', 'true');
-      // Don't block body scroll on mobile - only prevent background interactions
       document.body.classList.add('mobile-menu-open');
     }
     
-    function closeNewMenu() {
+    function closeMenu() {
       newMenuContainer.classList.remove('active');
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', 'false');
@@ -43,28 +42,28 @@ if (window.innerWidth >= 700) {
       e.stopPropagation();
       const isOpen = newMenuContainer.classList.contains('active');
       if (isOpen) {
-        closeNewMenu();
+        closeMenu();
       } else {
-        openNewMenu();
+        openMenu();
       }
     });
     
     // Chiudi con il pulsante X nel menu
     newMenuCloseBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      closeNewMenu();
+      closeMenu();
     });
     
     // Chiudi cliccando sul backdrop
     newMenuBackdrop.addEventListener('click', (e) => {
       e.stopPropagation();
-      closeNewMenu();
+      closeMenu();
     });
     
     // Chiudi con tasto Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && newMenuContainer.classList.contains('active')) {
-        closeNewMenu();
+        closeMenu();
       }
     });
     
@@ -72,58 +71,14 @@ if (window.innerWidth >= 700) {
     const menuLinks = newMenuContainer.querySelectorAll('.mobile-menu-nav a');
     menuLinks.forEach(link => {
       link.addEventListener('click', (e) => {
-        // Attendi un po' prima di chiudere per permettere la navigazione
         setTimeout(() => {
-          closeNewMenu();
+          closeMenu();
         }, 100);
       });
     });
   }
 })();
 
-// Mobile navigation toggle - completamente rifatto e semplificato (versione originale per desktop)
-(function() {
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.site-nav');
-  const overlay = document.getElementById('mobileMenuOverlay');
-  
-  // Funziona solo su desktop/tablet (NON su mobile)
-  if (window.innerWidth > 768 && toggle && nav && overlay) {
-    function openMenu() {
-      nav.classList.add('active');
-      overlay.classList.add('active');
-      toggle.classList.add('active');
-      toggle.setAttribute('aria-expanded', 'true');
-    }
-    
-    function closeMenu() {
-      nav.classList.remove('active');
-      overlay.classList.remove('active');
-      toggle.classList.remove('active');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-    
-    toggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = nav.classList.contains('active');
-      if (isOpen) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    });
-    
-    overlay.addEventListener('click', (e) => {
-      e.stopPropagation();
-      closeMenu();
-    });
-    
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && nav.classList.contains('active')) {
-        closeMenu();
-      }
-    });
-  }
 
   // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -141,18 +96,9 @@ if (window.innerWidth >= 700) {
             behavior: 'smooth'
           });
           
-          // Chiudi il menu mobile se aperto (sia vecchio che nuovo)
-          const nav = document.querySelector('.site-nav');
-          const overlay = document.getElementById('mobileMenuOverlay');
-          const toggle = document.querySelector('.nav-toggle');
+          // Chiudi il menu mobile se aperto
           const newMenuContainer = document.getElementById('mobileMenuContainer');
-          
-          if (nav && nav.classList.contains('active')) {
-            nav.classList.remove('active');
-            overlay.classList.remove('active');
-            toggle.classList.remove('active');
-            toggle.setAttribute('aria-expanded', 'false');
-          }
+          const toggle = document.querySelector('.nav-toggle');
           
           if (newMenuContainer && newMenuContainer.classList.contains('active')) {
             newMenuContainer.classList.remove('active');
@@ -659,4 +605,3 @@ if (window.innerWidth >= 700) {
       }
     });
   })();
-})();

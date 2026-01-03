@@ -454,22 +454,6 @@ a {
   transition: color 0.2s ease;
 }
 
-/* Enhanced hero section entrance */
-.hero-stars {
-  animation: heroEntrance 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes heroEntrance {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 /* Navigation smooth transitions */
 .site-header {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
@@ -510,6 +494,7 @@ html, body {
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  position: relative;
 }
 
 /* Handle popup open state - don't block scrolling on mobile */
@@ -519,11 +504,12 @@ body.popup-open {
   touch-action: pan-y;
 }
 
-/* Handle mobile menu open state - only prevent background interactions */
-body.mobile-menu-open {
-  overflow-x: hidden;
-  overflow-y: auto;
-  touch-action: pan-y;
+/* APPLICA STESSE REGOLE A TUTTO IL SITE - FIX SCROLLING MOBILE */
+body {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  touch-action: pan-y !important;
+  position: relative !important;
 }
 
 /* Fix viewport height issues on mobile */
@@ -863,20 +849,16 @@ textarea {
 
 /* Enhanced mobile page transitions */
 @media (max-width: 768px) {
-  /* Assicuro scrolling completo su mobile */
+  /* Simplified mobile scrolling - remove conflicts */
   html, body {
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    touch-action: pan-y !important;
-    position: relative !important;
-    height: auto !important;
-    min-height: 100vh !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
   }
   
   main {
-    overflow-y: auto !important;
-    position: relative !important;
+    position: relative;
   }
   
   body {
@@ -1747,25 +1729,22 @@ textarea {
 
 /* Media query specifica per mobile - pagina servizi */
 @media (max-width: 768px) {
-  /* Fix scrolling mobile */
+  /* Simplified scrolling for services page */
   html, body {
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    touch-action: pan-y !important;
-    position: relative !important;
-    min-height: auto !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
   }
   
   main {
-    min-height: auto !important;
-    overflow-y: auto !important;
+    position: relative;
   }
   
-  /* Previeni interferenze flip card con scrolling */
+  /* Fix flip card touch behavior */
   .flip-card {
-    pointer-events: auto !important;
-    touch-action: manipulation !important;
+    pointer-events: auto;
+    touch-action: manipulation;
   }
   
   .flip-card-inner {
@@ -1941,6 +1920,74 @@ textarea {
 }
 
 /* ==========================================================================
+   FIX SCROLLING MOBILE - Rimozione Layer Fantasma e Body Lock
+   ========================================================================== */
+
+@media (max-width: 991px) {
+  
+  /* 1. Layer Fantasma - Assicura che i menu non blocchino i tocchi quando chiusi */
+  .mobile-menu-container:not(.active),
+  .mobile-menu-overlay:not(.active),
+  .mobile-menu-backdrop {
+    pointer-events: none !important;
+    visibility: hidden !important;
+    z-index: -9999 !important;
+  }
+  
+  /* 2. Body Lock - Rimuovi overflow bloccanti quando menu è chiuso */
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    position: relative !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    touch-action: pan-y !important;
+  }
+  
+  /* 3. Rimuovi altezze fisse che rompono lo scroll mobile */
+  html {
+    height: auto !important;
+  }
+  
+  body {
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+  
+  /* 4. Main content deve essere scrollabile */
+  main {
+    position: relative !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+  
+  /* 5. Hero section senza altezza fissa che blocca scroll */
+  .hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 80px 0 60px !important;
+  }
+  
+  /* 6. Solo quando menu è APERTO applica il body lock */
+  body.mobile-menu-open {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100vh !important;
+  }
+  
+  /* 7. Quando menu è aperto, i layer devono essere interattivi */
+  body.mobile-menu-open .mobile-menu-container.active,
+  body.mobile-menu-open .mobile-menu-container.active * {
+    pointer-events: auto !important;
+    visibility: visible !important;
+    z-index: 99999 !important;
+  }
+}
+
+/* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
@@ -1974,7 +2021,7 @@ body::before {
 }
 
 html, body {
-  background: transparent; /* Changed from url to transparent */
+  background: transparent;
   color: var(--text);
   font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   overflow-x: hidden;
@@ -1987,7 +2034,6 @@ main {
   background: transparent;
   min-height: calc(100vh - 140px); /* Altezza totale meno header e footer */
 }
-
 
 img { max-width: 100%; height: auto; display: block; border-radius: 10px; }
 
@@ -2069,7 +2115,6 @@ img { max-width: 100%; height: auto; display: block; border-radius: 10px; }
 
 /* Enhanced nav visual for visibility and small animation */
 .site-nav a { padding: 8px 10px; border-radius: 8px; transition: background .22s ease, transform .12s ease, box-shadow .2s ease, color .2s ease; }
-
 
 /* General interactive radial highlight for tiles/cards */
 .interactive { position: relative; overflow: hidden; --mx:50%; --my:50%; }
@@ -3127,28 +3172,22 @@ a[href^="tel:"] { color: var(--text); text-decoration-color: rgba(184,134,11,0.4
 
 /* MOBILE: Fix review cards text visibility and layout */
 @media (max-width: 768px) {
-  /* Fix scrolling mobile */
+  /* Simplified scrolling for review cards */
   html, body {
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    touch-action: pan-y !important;
-    position: relative !important;
-    min-height: auto !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
   }
   
   main {
-    min-height: auto !important;
-    overflow-y: auto !important;
+    position: relative;
   }
   
-  /* Previeni interferenze flip card con scrolling */
+  /* Fix flip card touch behavior */
   .flip-card {
-    pointer-events: auto !important;
-    touch-action: manipulation !important;
-  }
-  
-  .flip-card-inner {
+    pointer-events: auto;
+    touch-action: manipulation;
     pointer-events: none !important;
   }
   
@@ -3586,6 +3625,49 @@ a[href^="tel:"] { color: var(--text); text-decoration-color: rgba(184,134,11,0.4
 .flip-card h3:hover,
 .flip-card .price-badge:hover {
   text-decoration: none !important;
+}
+
+/* Disabilita selezione testo su mobile per tutti gli elementi interattivi */
+@media (max-width: 768px) {
+  /* Disabilita selezione per tutti i bottoni e link */
+  .btn, .btn-primary, .btn-outline, .btn-social,
+  .nav-toggle, .mobile-menu-close, .mobile-menu-close-btn,
+  .category-btn, .flip-card, .social-card,
+  .language-btn, .cookie-popup-buttons button,
+  #enableMapBtn, #cookie-accept-btn, #cookie-decline-btn {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  
+  /* Disabilita selezione per gli elementi di navigazione */
+  .site-nav a, .mobile-menu-nav a,
+  .brand, .quick-nav-item {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+  
+  /* Disabilita selezione per i form input e label (ma non il testo inserito) */
+  input, textarea, select {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+  
+  label {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+  }
 }
 
 /* --- BUG FIX: Responsive Grid for Price Cards --- */
