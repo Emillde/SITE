@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
       userHasScrolled = true;
       scrollIndicator.style.opacity = '0';
       scrollIndicator.style.pointerEvents = 'none';
-      scrollIndicator.style.pointerEvents = 'none';
       setTimeout(() => {
         scrollIndicator.style.display = 'none';
       }, 300);

@@ -27,14 +27,14 @@ if (window.innerWidth >= 992) {
       newMenuContainer.classList.add('active');
       toggle.classList.add('active');
       toggle.setAttribute('aria-expanded', 'true');
-      document.body.classList.add('mobile-menu-open');
+      document.body.classList.add('no-scroll');
     }
     
     function closeMenu() {
       newMenuContainer.classList.remove('active');
       toggle.classList.remove('active');
       toggle.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('mobile-menu-open');
+      document.body.classList.remove('no-scroll');
     }
     
     // Toggle del menu con il pulsante hamburger
@@ -80,35 +80,6 @@ if (window.innerWidth >= 992) {
 })();
 
 
-  // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const id = a.getAttribute('href');
-        const el = id && document.querySelector(id);
-        if (el) {
-          e.preventDefault();
-          const header = document.querySelector('.site-header');
-          const headerHeight = header ? header.offsetHeight : 0;
-          const rect = el.getBoundingClientRect();
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          window.scrollTo({
-            top: scrollTop + rect.top - headerHeight,
-            behavior: 'smooth'
-          });
-          
-          // Chiudi il menu mobile se aperto
-          const newMenuContainer = document.getElementById('mobileMenuContainer');
-          const toggle = document.querySelector('.nav-toggle');
-          
-          if (newMenuContainer && newMenuContainer.classList.contains('active')) {
-            newMenuContainer.classList.remove('active');
-            toggle.classList.remove('active');
-            toggle.setAttribute('aria-expanded', 'false');
-            document.body.classList.remove('mobile-menu-open');
-          }
-        }
-      });
-    });
 
   // Dynamic year
   const yearEl = document.getElementById('year');

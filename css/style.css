@@ -1988,6 +1988,114 @@ textarea {
 }
 
 /* ==========================================================================
+   PERFORMANCE & SEO OPTIMIZATIONS
+   ========================================================================== */
+
+/* Font loading optimization */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap');
+
+/* Ghost layers - disabilitati di default */
+#mobileMenuContainer,
+.mobile-menu-overlay,
+.mobile-menu-backdrop,
+#cookie-consent-popup:not(.show) {
+  pointer-events: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Ghost layers attivi solo quando aperti */
+#mobileMenuContainer.active,
+.mobile-menu-overlay.active,
+.mobile-menu-backdrop,
+#cookie-consent-popup.show {
+  pointer-events: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Scroll indicator ottimizzato */
+.scroll-indicator {
+  pointer-events: none !important;
+}
+
+/* Body lock per menu aperto */
+.no-scroll {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+}
+
+/* ==========================================================================
+   MOBILE OPTIMIZATIONS - Performance & Ghost Layers
+   ========================================================================== */
+
+@media (max-width: 991px) {
+  
+  /* 1. Ghost layers - Assicura che i menu non blocchino i tocchi quando chiusi */
+  .mobile-menu-container:not(.active),
+  .mobile-menu-overlay:not(.active),
+  .mobile-menu-backdrop {
+    pointer-events: none !important;
+    visibility: hidden !important;
+    z-index: -9999 !important;
+    opacity: 0 !important;
+  }
+  
+  /* 2. Body Lock - Rimuovi overflow bloccanti quando menu è chiuso */
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    position: relative !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    touch-action: pan-y !important;
+  }
+  
+  /* 3. Rimuovi altezze fisse che rompono lo scroll mobile */
+  html {
+    height: auto !important;
+  }
+  
+  body {
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+  
+  /* 4. Main content deve essere scrollabile */
+  main {
+    position: relative !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+  }
+  
+  /* 5. Hero section senza altezza fissa che blocca scroll */
+  .hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 80px 0 60px !important;
+  }
+  
+  /* 6. Quando menu è aperto, i layer devono essere interattivi */
+  body.no-scroll .mobile-menu-container.active,
+  body.no-scroll .mobile-menu-container.active * {
+    pointer-events: auto !important;
+    visibility: visible !important;
+    z-index: 99999 !important;
+    opacity: 1 !important;
+  }
+  
+  /* 7. Cookie popup non bloccante su mobile */
+  #cookie-consent-popup:not(.show) {
+    pointer-events: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+}
+
+/* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
