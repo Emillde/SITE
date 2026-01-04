@@ -31,35 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Show/hide quick nav based on scroll position (only in home page)
-  if (quickNav) {
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
-    function updateQuickNav() {
-      const scrollY = window.scrollY;
-      
-      if (scrollY > 100) {
-        quickNav.classList.add('visible');
-      } else {
-        quickNav.classList.remove('visible');
-      }
-
-      lastScrollY = scrollY;
-      ticking = false;
-    }
-
-    function requestTick() {
-      if (!ticking) {
-        requestAnimationFrame(updateQuickNav);
-        ticking = true;
-      }
-    }
-
-    window.addEventListener('scroll', requestTick);
-    updateQuickNav();
-  }
-
   // Add entrance animation
   scrollIndicator.style.opacity = '0';
   scrollIndicator.style.transform = 'translateX(-50%) translateY(20px)';

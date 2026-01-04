@@ -506,10 +506,10 @@ body.popup-open {
 
 /* APPLICA STESSE REGOLE A TUTTO IL SITE - FIX SCROLLING MOBILE */
 body {
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
-  touch-action: pan-y !important;
-  position: relative !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+  touch-action: pan-y;
+  position: relative;
 }
 
 /* Fix viewport height issues on mobile */
@@ -1674,18 +1674,20 @@ textarea {
   color: #1a1a1a;
 }
 
-/* Animazioni di entrata per i link del menu */
-.mobile-menu-container.active .mobile-menu-nav li {
-  animation: slideInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  opacity: 0;
-  transform: translateY(20px);
-}
+/* Animazioni di entrata per i link del menu - DISABILITATE SU MOBILE */
+@media (min-width: 769px) {
+  .mobile-menu-container.active .mobile-menu-nav li {
+    animation: slideInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-.mobile-menu-container.active .mobile-menu-nav li:nth-child(1) { animation-delay: 0.1s; }
-.mobile-menu-container.active .mobile-menu-nav li:nth-child(2) { animation-delay: 0.2s; }
-.mobile-menu-container.active .mobile-menu-nav li:nth-child(3) { animation-delay: 0.3s; }
-.mobile-menu-container.active .mobile-menu-nav li:nth-child(4) { animation-delay: 0.4s; }
-.mobile-menu-container.active .mobile-menu-nav li:nth-child(5) { animation-delay: 0.5s; }
+  .mobile-menu-container.active .mobile-menu-nav li:nth-child(1) { animation-delay: 0.1s; }
+  .mobile-menu-container.active .mobile-menu-nav li:nth-child(2) { animation-delay: 0.2s; }
+  .mobile-menu-container.active .mobile-menu-nav li:nth-child(3) { animation-delay: 0.3s; }
+  .mobile-menu-container.active .mobile-menu-nav li:nth-child(4) { animation-delay: 0.4s; }
+  .mobile-menu-container.active .mobile-menu-nav li:nth-child(5) { animation-delay: 0.5s; }
+}
 
 @keyframes slideInUp {
   from {
